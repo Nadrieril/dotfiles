@@ -1,14 +1,19 @@
-# Auto-tmux in SSH
-if [ -n "$SSH_CLIENT" ]; then
-    if [ "$PS1" != "" -a -z "$TMUX" -a "${SSH_TTY:-x}" != x ]; then
-        command -v tmux 2>&1 && ((tmux ls | grep -vq attached && tmux at) || tmux new-session) && exit 0
-        echo "Tmux failed! continuing with normal startup"
-    else
-        [[ -f /var/run/motd.dynamic ]] && cat /var/run/motd.dynamic
-    fi
+# Auto-tmux
+if [ "$PS1" != "" -a -z "$TMUX" ]; then
+    command -v tmux 2>&1 && ((tmux ls | grep -vq attached && tmux at) || tmux new-session) && exit 0
+    echo "Tmux failed! continuing with normal startup"
+else
+    [[ -f /var/run/motd.dynamic ]] && cat /var/run/motd.dynamic
 fi
 
 ZSH_DIR=$HOME/.zsh
+
+# Basic setup
+HISTFILE=$ZSH_DIR/history
+HISTORY_BASE=$ZSH_DIR/per-dir-history
+HIST_STAMPS="yyyy-mm-dd"
+HISTSIZE=100000
+SAVEHIST=100000
 
 # Oh-my-zsh
 plugins=(colorize colored-man debian docker git per-directory-history rsync systemd tmuxinator z)
@@ -17,14 +22,6 @@ export ZSH=$ZSH_DIR/oh-my-zsh
 ZSH_THEME="ys"
 DISABLE_AUTO_UPDATE="true"
 source $ZSH/oh-my-zsh.sh
-
-
-# Basic setup
-HISTFILE=$ZSH_DIR/history
-HISTORY_BASE=$ZSH_DIR/per-dir-history
-HIST_STAMPS="yyyy-mm-dd"
-HISTSIZE=10000
-SAVEHIST=10000
 
 # Autocompletion
 setopt extendedglob
@@ -48,14 +45,15 @@ COMPLETION_WAITING_DOTS="true"
 #
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# autoload -U up-line-or-beginning-search down-line-or-beginning-search
-# zle -N up-line-or-beginning-search down-line-or-beginning-search
-# bindkey '^[[A' up-line-or-beginning-search
-# bindkey '^[[B' down-line-or-beginning-search
+#autoload -U up-line-or-beginning-search down-line-or-beginning-search
+#zle -N up-line-or-beginning-search down-line-or-beginning-search
+#bindkey '^[[A' up-line-or-beginning-search
+#bindkey '^[[B' down-line-or-beginning-search
 
-autoload zkbd
-bindkey "${key[Up]}" history-beginning-search-backward
-bindkey "${key[Down]}" history-beginning-search-forward
+#autoload zkbd
+bindkey  "${terminfo[kcuu1]}"      history-beginning-search-backward
+bindkey  "${terminfo[kcud1]}"    history-beginning-search-forward
+
 
 function mk_prompt {
     function git_prompt_info() {
