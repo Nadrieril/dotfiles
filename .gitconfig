@@ -1,32 +1,34 @@
 [user]
-	name = Nadrieril
-	email = nadrieril@gmail.com
+    name = Nadrieril
+    email = nadrieril@gmail.com
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [push]
-	default = current
+    default = current
 [alias]
-	st = status
-	co = checkout
-	cob = checkout -b
-	br = branch
+    st = status
+    co = checkout
+    cob = checkout -b
+    br = branch
+    dc = diff --cached
 
-	fa = fetch --all
-	pur = pull --rebase
-	pff = pull --no-rebase --ff-only
-	clear = remote prune origin
+    fa = fetch --all
+    pur = pull --rebase
+    pff = pull --no-rebase --ff-only
+    clear = remote prune origin
 
-	sth = stash
-	sthp = stash pop
+    sth = stash
+    sthp = stash pop
+    rh = reset HEAD
 
-	ap = add -p
-	ai = add -i
+    ap = add -p
+    ai = add -i
 
-	ci = commit
-	cm = commit -m
-	cia = commit --amend
-	cian = commit --amend --no-edit
+    ci = commit
+    cm = commit -m
+    cia = commit --amend
+    cian = commit --amend --no-edit
 
-	alias = config --get-regexp ^alias\\.
-	confg = config --global
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    alias = config --get-regexp ^alias\\.
+    confg = config --global
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
