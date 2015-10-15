@@ -6,13 +6,14 @@
 [push]
     default = current
 [alias]
+    s = status
     st = status
+    dc = diff --cached
     co = checkout
     cob = checkout -b
     br = branch
-    dc = diff --cached
 
-    fa = fetch --all
+    fa = fetch --all --prune
     pur = pull --rebase
     pff = pull --no-rebase --ff-only
     clear = remote prune origin
@@ -28,6 +29,7 @@
     cm = commit -m
     cia = commit --amend
     cian = commit --amend --no-edit
+    rbi = rebase -i
 
     alias = config --get-regexp ^alias\\.
     confg = config --global
