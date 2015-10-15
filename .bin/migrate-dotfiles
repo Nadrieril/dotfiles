@@ -1,7 +1,7 @@
 #!/bin/bash
 DOTFILESDIR=$(cd "$(dirname "$0")"/..; pwd)
 
-cd "$HOME"
+cd "$HOME" || exit
 for F in $(ls -A "$DOTFILESDIR"); do
   if [[ -L "$F" ]]; then
     rm "$F"
@@ -12,4 +12,4 @@ done
 mv "$DOTFILESDIR" "$HOME/.dotfiles"
 echo "gitdir: ../../.dotfiles/.git/modules/oh-my-zsh" > .zsh/oh-my-zsh/.git
 sed -i 's#worktree.*$#worktree = ../../../../.zsh/oh-my-zsh#' .dotfiles/.git/modules/oh-my-zsh/config
-sed 's#^\[branch#'"\t"'worktree='"$HOME"'\n[branch#' .dotfiles/.git/config
+sed -i 's#^\[remote#'"\t"'worktree='"$HOME"'\n[remote#' .dotfiles/.git/config
