@@ -7,9 +7,6 @@ git pull
 git submodule init
 git submodule update --remote
 
-mkdir .zsh/completion
-curl -L https://raw.githubusercontent.com/sdurrheimer/docker-compose-zsh-completion/master/_docker-compose > .zsh/completion/_docker-compose
-
 cd "$HOME"
 for F in $(ls -A "$DOTFILESDIR"); do
   rm -Irf "$F"
