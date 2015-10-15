@@ -12,4 +12,7 @@ done
 mv "$DOTFILESDIR" "$HOME/.dotfiles"
 echo "gitdir: ../../.dotfiles/.git/modules/oh-my-zsh" > .zsh/oh-my-zsh/.git
 sed -i 's#worktree.*$#worktree = ../../../../.zsh/oh-my-zsh#' .dotfiles/.git/modules/oh-my-zsh/config
+mv .dotfiles/.gitmodules .
+rm -rf vim*
+
 sed -i 's#^\[remote#'"\t"'worktree='"$HOME"'\n[remote#' .dotfiles/.git/config
