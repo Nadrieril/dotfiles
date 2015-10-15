@@ -2,8 +2,3 @@
     path = .zsh/oh-my-zsh
     url = https://github.com/robbyrussell/oh-my-zsh.git
     branch = master
-
-[submodule ".vim/bundle/neobundle.vim"]
-    path = .vim/bundle/neobundle.vim
-    url = https://github.com/Shougo/neobundle.vim
-    branch = master
