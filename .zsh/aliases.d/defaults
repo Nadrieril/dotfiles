@@ -5,3 +5,4 @@ alias du='du -h'
 alias tmuxinator='nocorrect tmuxinator'
 alias xo='xdg-open'
 function ljq() {jq -C $@ | less -r}
+alias free='free -h'

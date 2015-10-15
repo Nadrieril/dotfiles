@@ -15,3 +15,5 @@ function nx () {
   [[ -f $1 ]] && chmod +x $1
 }
 alias e='editor'
+
+alias xelpaste="curl -F 'content=<-' http://xelpaste.org//api/"
