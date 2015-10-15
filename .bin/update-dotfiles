@@ -1,0 +1,9 @@
+#!/bin/sh
+DOTFILESDIR="$HOME/.dotfiles"
+export LC_ALL="en_US.UTF-8"
+
+cd "$DOTFILESDIR" || exit
+git pull
+git submodule update --remote
+
+tmux source-file ~/.tmux.conf
