@@ -3,7 +3,7 @@ DOTFILESDIR="$HOME/.dotfiles"
 export LC_ALL="en_US.UTF-8"
 
 cd "$DOTFILESDIR" || exit
-git pull
+git pull --no-rebase --ff-only
 git submodule update --remote
 
 tmux source-file ~/.tmux.conf
