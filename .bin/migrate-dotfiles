@@ -16,4 +16,4 @@ git config --replace-all core.worktree "$HOME"
 mv .dotfiles/.gitmodules .
 rm -rf .vim*
 
-sed -i 's#^\[remote#'"\t"'worktree='"$HOME"'\n[remote#' .dotfiles/.git/config
+sed -i 's#worktree \?= \?#worktree = ../#' .dotfiles/.git/modules/oh-my-zsh/config
