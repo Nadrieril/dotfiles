@@ -8,6 +8,8 @@
 [alias]
     s = status
     st = status
+    stu = status -uno
+    d = diff
     dc = diff --cached
     co = checkout
     cob = checkout -b

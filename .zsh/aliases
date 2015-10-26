@@ -5,6 +5,7 @@ done
 alias hist='history | grep'
 alias mine='sudo chown -R $USER:$GID'
 alias findfile='sudo find / -name'
+alias lstar='tar -tvf'
 
 alias getip='wget -qO- http://ipecho.net/plain ; echo'
 alias explore='nautilus "$PWD"'
