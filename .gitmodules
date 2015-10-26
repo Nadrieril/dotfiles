@@ -2,3 +2,7 @@
     path = .zsh/oh-my-zsh
     url = https://github.com/robbyrussell/oh-my-zsh.git
     branch = master
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+	branch = master
