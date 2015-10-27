@@ -6,7 +6,3 @@
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 	branch = master
-[submodule ".dotfiles/powerline"]
-	path = .dotfiles/powerline
-	url = https://github.com/powerline/powerline
-	branch = develop
