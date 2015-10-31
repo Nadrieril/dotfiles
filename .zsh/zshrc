@@ -51,27 +51,32 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 #bindkey '^[[B' down-line-or-beginning-search
 
 #autoload zkbd
-bindkey  "${terminfo[kcuu1]}"      history-beginning-search-backward
-bindkey  "${terminfo[kcud1]}"    history-beginning-search-forward
+bindkey "${terminfo[kcuu1]}" history-beginning-search-backward
+bindkey "${terminfo[kcud1]}" history-beginning-search-forward
 
 
 function mk_prompt {
+    function pwrl_helper() {python3 $HOME/.dotfiles/powerline-helper.py zsh '#' "$1"}
     function git_prompt_info() {
-      ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-      echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
+      ref=$(git symbolic-ref HEAD 2> /dev/null)
+      if [ $? -eq 0 ]; then
+        pwrl_helper "B240##F250,B238# ${ref#refs/heads/} #"
+      else
+        pwrl_helper "B240##"
+      fi
     }
 
-    local SHARP='%{$fg_bold[blue]%}#%{$reset_color%}'
-    local USER='%(!.%{$fg[red]%}.%{$fg[cyan]%})%n%{$reset_color%}'
-    local AT='%{$fg[white]%}at'
-    local HOST='%{$fg[green]%}%m'
-    local IN='%{$fg[white]%}in'
-    local CURRENT_DIR='%{$fg_bold[yellow]%}${PWD/#$HOME/~}%{$reset_color%}'
-    local TIME='%{$fg[white]%}[%*]'
-    local SYMBOL='%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})$%{$reset_color%}'
+    PROMPT=$'\n'
+    PROMPT=$PROMPT$(pwrl_helper '
+      F250,B240# %m #
+      F250,B238# %n #
+      F15,B31,bold# %~ #
+      F250,B240# %* ')
+    PROMPT=$PROMPT'$(git_prompt_info)'
+    PROMPT=$PROMPT$'\n'
+    PROMPT=$PROMPT$(pwrl_helper 'B236#%{%(?:'$fg_bold[green]':'$fg_bold[red]')%} $ #')
+    PROMPT=$PROMPT' '
 
-    # Prompt format: \n # USER at MACHINE in DIRECTORY on git:branch [TIME] \n $
-    PROMPT=$'\n'"$SHARP $USER $AT $HOST $IN $CURRENT_DIR"'$(git_prompt_info)'" $TIME"$'\n'"$SYMBOL "
 }
 mk_prompt
 
