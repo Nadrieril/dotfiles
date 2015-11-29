@@ -36,6 +36,8 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 # _comp_options+=(globdots)
 
+source $ZSH_DIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 CASE_SENSITIVE="false"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
