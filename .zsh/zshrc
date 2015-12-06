@@ -71,7 +71,7 @@ function mk_prompt {
     PROMPT=$'\n'
     PROMPT=$PROMPT$(pwrl_helper '
       F250,B240# %m #
-      F250,B238# %n #
+      F250,B238# %(!.%{'$fg[red]'%}.)%n #
       F15,B31,bold# %~ #
       F250,B240# %* ')
     PROMPT=$PROMPT'$(git_prompt_info)'
