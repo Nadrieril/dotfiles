@@ -1,2 +1,7 @@
 '.platform-linux atom-workspace, .platform-linux atom-text-editor':
   'ctrl-shift-b': 'build:trigger'
+'atom-text-editor':
+  'alt-up': 'expand-region:expand'
+  'alt-down': 'expand-region:shrink'
+'atom-workspace atom-text-editor':
+  'ctrl-k l': 'editor:split-selections-into-lines'
