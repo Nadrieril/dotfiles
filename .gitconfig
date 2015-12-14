@@ -31,7 +31,8 @@
     cm = commit -m
     cia = commit --amend
     cian = commit --amend --no-edit
-    rbi = rebase -i
+    rb = rebase --autosquash
+    rbi = rebase -i --autosquash
 
     alias = config --get-regexp ^alias\\.
     confg = config --global
