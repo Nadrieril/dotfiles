@@ -1,0 +1,2 @@
+'.platform-linux atom-workspace, .platform-linux atom-text-editor':
+  'ctrl-shift-b': 'build:trigger'
