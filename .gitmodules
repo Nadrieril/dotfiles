@@ -1,11 +1,12 @@
 [submodule "oh-my-zsh"]
-    path = .zsh/oh-my-zsh
-    url = https://github.com/robbyrussell/oh-my-zsh.git
-    branch = master
+	path = .zsh/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+	branch = master
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
 	branch = master
-[submodule "/home/nadrieril/.zsh/plugins/zsh-syntax-highlighting"]
-	path = /home/nadrieril/.zsh/plugins/zsh-syntax-highlighting
+[submodule "zsh-syntax-highlighting"]
+	path = .zsh/plugins/zsh-syntax-highlighting
 	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+	branch = master
