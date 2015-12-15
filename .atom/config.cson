@@ -1,21 +1,27 @@
 "*":
   "exception-reporting":
-    userId: "3d05aadc-d25f-3ea2-e40a-3f40f6d5ab57"
+    userId: "373d9b32-6aae-9576-9a0d-e8b45fb9f783"
   welcome:
     showOnStartup: false
   editor:
+    backUpBeforeSaving: true
     scrollPastEnd: true
     invisibles: {}
     autoIndentOnPaste: false
     showIndentGuide: true
     softWrap: true
-    preferredLineLength: 100
+    preferredLineLength: 120
     tabType: "soft"
     zoomFontWhenCtrlScrolling: false
   "autocomplete-plus":
+    confirmCompletion: "tab"
     enableAutoActivation: false
+    softWrapAtPreferredLineLength: true
   core:
+    projectHome: "/home/nadrieril/wip"
     ignoredNames: [
+      ".git"
+      "*.hi"
       "*.pyc"
       "*.o"
       "*.class"
@@ -32,6 +38,7 @@
     packagesWithKeymapsDisabled: [
       "git-blame"
     ]
+    audioBeep: false
   linter:
     lintOnChangeInterval: 2000
     ignoredLinterErrors: [
@@ -39,10 +46,6 @@
     ]
   "tree-view":
     hideIgnoredNames: true
-  "linter-clang": {}
-  "autocomplete-clang":
-    preCompiledHeaders: {}
-    std: {}
   build:
     scrollOnError: true
     stealFocus: false
@@ -51,21 +54,14 @@
   "highlight-selected":
     hideHighlightOnSelectedWord: true
     onlyHighlightWholeWords: true
-  "linter-javac": {}
   "remote-atom":
     launch_at_startup: true
-  "linter-shellcheck": {}
   "haskell-ghc-mod":
     disableFrontend: true
   "ide-haskell":
     startupMessageIdeBackend: false
-  "atom-beautify":
-    _analyticsUserId: "699f7c64-3991-4933-8dfa-4384804b0035"
   "one-dark-ui":
     layoutMode: "Compact"
-  "remote-edit": {}
-  "find-and-replace": {}
-  "spell-check": {}
   "vim-mode":
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
@@ -81,12 +77,23 @@
       "``"
       "$$"
     ]
-".camlp4.ocaml.source":
+  jumpy:
+    highContrast: true
+  minimap:
+    plugins:
+      "git-diff": true
+
+
+".text":
   editor:
-    tabLength: 2
+    softWrap: true
+    softWrapAtPreferredLineLength: true
 ".ocaml.source":
   editor:
     tabLength: 2
 ".java.source":
+  editor:
+    tabLength: 4
+".python.source":
   editor:
     tabLength: 4
