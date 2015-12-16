@@ -82,15 +82,15 @@
   minimap:
     plugins:
       "git-diff": true
-".ocaml.source":
-  editor:
-    tabLength: 2
-".java.source":
-  editor:
-    tabLength: 4
 ".python.source":
   editor:
     tabLength: 4
+".java.source":
+  editor:
+    tabLength: 4
+".ocaml.source":
+  editor:
+    tabLength: 2
 ".text":
   editor:
     softWrap: true
