@@ -16,5 +16,21 @@ function nx () {
   [[ -f $1 ]] && chmod +x $1
 }
 alias e='editor'
+alias gdiff='git --no-pager diff --no-index --'
+
 
 alias xelpaste="curl -F 'content=<-' http://xelpaste.org//api/"
+function vlcyt() {
+  URL="$(yturl "$1")" || return
+  vlc "$URL"
+}
+
+function ymltojson() {
+  python -c 'import sys,yaml,json; print(json.dumps(yaml.load(sys.stdin)))'
+}
+function jsontoyml() {
+  python -c 'import sys,yaml,json; print(yaml.dump(json.load(sys.stdin), default_flow_style=False))'
+}
+function yq() {
+  ymltojson | jq -c "$@" | while read line; do echo "$line" | jsontoyml; done
+}
