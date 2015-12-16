@@ -1,9 +1,9 @@
 "*":
   "exception-reporting":
     userId: "373d9b32-6aae-9576-9a0d-e8b45fb9f783"
-  "welcome":
+  welcome:
     showOnStartup: false
-  "editor":
+  editor:
     backUpBeforeSaving: true
     scrollPastEnd: true
     invisibles: {}
@@ -17,7 +17,7 @@
     confirmCompletion: "tab"
     enableAutoActivation: false
     softWrapAtPreferredLineLength: true
-  "core":
+  core:
     projectHome: "/home/nadrieril/wip"
     ignoredNames: [
       ".git"
@@ -39,14 +39,14 @@
       "git-blame"
     ]
     audioBeep: false
-  "linter":
+  linter:
     lintOnChangeInterval: 2000
     ignoredLinterErrors: [
       "shellcheck"
     ]
   "tree-view":
     hideIgnoredNames: true
-  "build":
+  build:
     scrollOnError: true
     stealFocus: false
     saveOnBuild: true
@@ -77,23 +77,21 @@
       "``"
       "$$"
     ]
-  "jumpy":
+  jumpy:
     highContrast: true
-  "minimap":
+  minimap:
     plugins:
       "git-diff": true
-
-
-".text":
-  "editor":
-    softWrap: true
-    softWrapAtPreferredLineLength: true
 ".ocaml.source":
-  "editor":
+  editor:
     tabLength: 2
 ".java.source":
-  "editor":
+  editor:
     tabLength: 4
 ".python.source":
-  "editor":
+  editor:
     tabLength: 4
+".text":
+  editor:
+    softWrap: true
+    softWrapAtPreferredLineLength: true
