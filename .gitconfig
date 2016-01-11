@@ -22,6 +22,7 @@
 
     sth = stash
     sthp = stash pop
+    unstash = !git stash show -p | git apply -3 && git stash drop
     rh = reset HEAD
 
     ap = add -p
