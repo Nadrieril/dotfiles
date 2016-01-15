@@ -14,6 +14,11 @@
 'atom-text-editor.vim-mode.insert-mode':
   'ctrl-w': 'core:close'
 
+'atom-workspace':
+  'ctrl-k ctrl-c': 'change-case:camel'
+  'ctrl-k ctrl-s': 'change-case:snake'
+  'ctrl-k ctrl-t': 'change-case:title'
+
 '.platform-linux atom-workspace atom-text-editor:not([mini])':
   'ctrl-up': 'my:move-line-up'
   'ctrl-down': 'my:move-line-down'
