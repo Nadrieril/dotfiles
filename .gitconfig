@@ -18,6 +18,7 @@
     fa = fetch --all --prune
     pur = pull --rebase
     pff = pull --no-rebase --ff-only
+    subu = submodule update --init --remote
     clear = remote prune origin
 
     sth = stash
