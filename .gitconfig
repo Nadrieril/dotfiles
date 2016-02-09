@@ -9,8 +9,8 @@
     s = status
     st = status
     stu = status -uno
-    d = diff
-    dc = diff --cached
+    d = diff -M
+    dc = diff -M --cached
     co = checkout
     cob = checkout -b
     br = branch
@@ -39,3 +39,4 @@
     alias = config --get-regexp ^alias\\.
     confg = config --global
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
