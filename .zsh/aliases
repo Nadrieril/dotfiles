@@ -20,7 +20,7 @@ alias e='editor'
 alias gdiff='git --no-pager diff --no-index --'
 
 
-alias xelpaste="curl -F 'content=<-' http://xelpaste.org//api/"
+alias xelpaste="curl -F 'content=<-' http://xelpaste.net/api/"
 function vlcyt() {
   URL="$(yturl "$1")" || return
   vlc "$URL"
