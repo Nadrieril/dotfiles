@@ -2,7 +2,7 @@ for d in $HOME/.zsh/aliases.d/*; do
     source $d;
 done
 
-alias hist='history | grep'
+function hist() { grep -R $@ $HOME/.zsh/per-dir-history }
 alias mine='sudo chown -R $USER:$GID'
 alias findfile='sudo find / -name'
 alias lstar='tar -tvf'
