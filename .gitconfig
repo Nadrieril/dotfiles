@@ -5,6 +5,9 @@
     autosetuprebase = always
 [push]
     default = current
+[rebase]
+    autosquash = true
+    autostash = true
 [alias]
     s = status
     st = status
@@ -33,8 +36,8 @@
     cm = commit -m
     cia = commit --amend
     cian = commit --amend --no-edit
-    rb = rebase --autosquash
-    rbi = rebase -i --autosquash
+    rb = rebase
+    rbi = rebase -i
 
     alias = config --get-regexp ^alias\\.
     confg = config --global
