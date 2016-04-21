@@ -1,0 +1,83 @@
+#!/bin/env python3
+import os, sys, getopt
+from functools import reduce
+
+def toposort(data):
+    for k, v in data.items():
+        v.discard(k) # Ignore self dependencies
+
+    extra_items_in_deps = reduce(set.union, data.values(), set()) - set(data.keys())
+    data.update({item:set() for item in extra_items_in_deps})
+
+    while True:
+        ordered = set(item for item,dep in data.items() if not dep)
+        if not ordered: break
+        yield from sorted(ordered)
+
+        data = {item: (dep - ordered) for item,dep in data.items() if dep}
+
+    assert not data, "A cyclic dependency exists amongst %r" % data
+
+
+def main(argv):
+    HELP_STRING = argv[0] + " -f 'out%03d.jpg' -r 7-11 -e 'x+1' [-n] *.jpg"
+    format_str, rnge, expr = None, None, None
+    dry_run = False
+
+    try:
+        opts, args = getopt.getopt(argv[1:], "hnf:r:e:", ["help", "dryrun", "format=", "range=", "expr="])
+    except getopt.GetoptError:
+        print(HELP_STRING)
+        sys.exit(2)
+
+    for opt, arg in opts:
+        if opt in ("-h", "--help"):
+            print(HELP_STRING)
+            sys.exit()
+        elif opt in ("-n", "--dry-run"):
+            dry_run = True
+        elif opt in ("-f", "--format"):
+            format_str = arg
+        elif opt in ("-r", "--range"):
+            rnge = arg
+        elif opt in ("-e", "--expr"):
+            expr = arg
+
+    if format_str is None or rnge is None or expr is None:
+        print(HELP_STRING)
+        sys.exit(2)
+
+    [start, end] = list(map(int, rnge.split("-")))
+    files = set(args)
+
+    srcs, overwriting_targets = set(), set()
+    dependencies = {}
+    renames = {}
+    for x in range(start, end+1):
+        y = eval(expr, {'x':x})
+        src = format_str % x
+        target = format_str % y
+        if src not in files or src == target: continue
+        srcs.add(src)
+        if target in files:
+            overwriting_targets.add(target)
+
+        dependencies[src] = set([target])
+        renames[src] = target
+
+    overwrite = overwriting_targets - srcs
+    if len(overwrite) != 0:
+        print("overwrite ! %s" % repr(overwrite))
+        sys.exit(2)
+
+    for src in toposort(dependencies):
+        if src not in renames: continue
+        target = renames[src]
+        if dry_run:
+            print("%s -> %s" % (src, target))
+        else:
+            print("Renamed %s -> %s" % (src, target))
+            os.rename(src, target)
+
+
+main(sys.argv)

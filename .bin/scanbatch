@@ -1,0 +1,75 @@
+#!/bin/bash
+# Wrapper script to ease scanimage batch usage
+DEFAULT_OPTIONS="-d epjitsu --page-height 0"
+FORMAT_STR="out%03d"
+MODE="Gray"
+RESOLUTION="200"
+SOURCE="ADF Duplex"
+FORMAT="tiff"
+BATCH_START=""
+TEST_MODE="false"
+
+while getopts ":ncr:s:f:" opt; do
+  case $opt in
+    n) TEST_MODE="true";;
+    c) MODE="Color";;
+    r) RESOLUTION="$OPTARG";;
+    f) FORMAT="$OPTARG";;
+
+    s)
+      case $OPTARG in
+        f) SOURCE="Front";;
+        d) SOURCE="Duplex";;
+        b) SOURCE="Back";;
+        *) echo "Invalid option: -s $OPTARG" >&2
+           exit 1
+           ;;
+      esac
+      SOURCE="ADF $SOURCE"
+      ;;
+
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+case $FORMAT in
+  tiff)
+    FORMAT_EXT="tif";;
+  pnm)
+    FORMAT_EXT="pnm";;
+  jpeg)
+    FORMAT_EXT="jpg";;
+  png)
+    FORMAT_EXT="png";;
+  *)
+    echo "Invalid format: $FORMAT" >&2;;
+esac
+
+if [[ -z "$BATCH_START" ]]; then
+  LAST_FILE="$(find -type f -name "out*.$FORMAT_EXT" | sort | tail -1)"
+  if [ "$LAST_FILE" = "" ]; then
+    BATCH_START=1
+  else
+    LAST_FILE_NUMBER="$(basename $LAST_FILE | sed "s/\.$FORMAT_EXT$//" | sed 's/out0*//')"
+    BATCH_START=$(( $LAST_FILE_NUMBER + 1 ))
+  fi
+fi
+
+FORMAT_STR="$FORMAT_STR.$FORMAT_EXT"
+OPTIONS="$DEFAULT_OPTIONS --resolution \"$RESOLUTION\""
+OPTIONS="$OPTIONS --mode \"$MODE\" --source \"$SOURCE\""
+OPTIONS="$OPTIONS --batch=\"$FORMAT_STR\" --batch-start=\"$BATCH_START\""
+OPTIONS="$OPTIONS --format=\"$FORMAT\""
+
+echo scanimage $OPTIONS
+if [ "$TEST_MODE" = "false" ]; then
+  eval scanimage $OPTIONS
+fi
