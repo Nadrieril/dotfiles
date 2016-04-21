@@ -8,6 +8,17 @@
 [rebase]
     autosquash = true
     autostash = true
+
+[url "git@rubion:"]
+   insteadOf = rubion:
+[url "git@minui:"]
+   insteadOf = minui:
+[url "git@github.com:"]
+   pushInsteadOf = github:
+   pushInsteadOf = git://github.com/
+[url "git://github.com/"]
+   insteadOf = github::
+
 [alias]
     s = status
     st = status
