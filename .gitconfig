@@ -44,6 +44,7 @@
     ai = add -i
 
     ci = commit
+    cif = commit --fixup
     cm = commit -m
     cia = commit --amend
     cian = commit --amend --no-edit
