@@ -6,3 +6,4 @@ alias tmuxinator='nocorrect tmuxinator'
 alias xo='xdg-open'
 function ljq() {jq -C $@ | less -r}
 alias free='free -h'
+alias xclip='xclip -selection clipboard'
