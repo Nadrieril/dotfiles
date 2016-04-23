@@ -1,3 +1,4 @@
+#export TERM=xterm-256color
 # Auto-tmux
 if [ "$PS1" != "" -a -z "$TMUX" ]; then
     command -v tmux 2>&1 && ((tmux ls | grep -vq attached && tmux at) || tmux new-session) && exit 0
@@ -71,7 +72,7 @@ function mk_prompt {
 
     PROMPT=$'\n'
     PROMPT=$PROMPT$(pwrl_helper '
-      F250,B240# %m #
+      F250,B240# %M #
       F250,B238# %(!.%{'$fg[red]'%}.)%n #
       F15,B31,bold# %~ #
       F250,B240# %* ')
@@ -86,5 +87,5 @@ mk_prompt
 source $ZSH_DIR/aliases
 source $ZSH_DIR/proxy
 
-export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
 export EDITOR="nano"
