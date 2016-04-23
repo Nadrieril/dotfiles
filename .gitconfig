@@ -22,7 +22,7 @@
    pushInsteadOf = github:
    pushInsteadOf = git://github.com/
 [url "git://github.com/"]
-   insteadOf = github::
+   insteadOf = github:
 
 [alias]
     s = status
