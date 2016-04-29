@@ -1,17 +1,10 @@
-#!/usr/bin/perl
+#!/bin/bash
 # Usage: replace "awk '{print $4}'" by "f 4"
 
-my $field = shift or usage();
-$field -= 1 if $field > 0;
-$|=1;
+STR="{print"
+for var in "$@"; do
+  STR="$STR \$$var \" \""
+done
+STR="$STR}"
 
-while (<>) {
-	chomp;
-	my @f = split;
-	print $f[$field], "\n";
-}
-
-sub usage {
-	print STDERR "$0 fieldnumber\n"; 
-	exit 1;
-}
+awk "$STR" | sed 's/ $//'
