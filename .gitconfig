@@ -13,6 +13,8 @@
 [rebase]
     autosquash = true
     autostash = true
+[diff]
+    compactionHeuristic = true
 
 [url "git@rubion:"]
    insteadOf = rubion:
