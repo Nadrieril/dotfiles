@@ -1,0 +1,8 @@
+#!/bin/bash
+# Spawn a shell in a temp dir and rm it afterwards
+
+TMPSH_DIR="$(mktemp -d -p /tmp)"
+cd "$TMPSH_DIR" || exit 1
+$SHELL
+cd /tmp || exit 1
+rm -rf "$TMPSH_DIR"
