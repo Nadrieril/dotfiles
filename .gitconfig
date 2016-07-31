@@ -6,6 +6,7 @@
 [user]
     name = Nadrieril
     email = nadrieril@gmail.com
+	signingkey = 3155D0CDF337E6B482871C59D1410AAF6C99F118
 [branch]
     autosetuprebase = always
 [push]
