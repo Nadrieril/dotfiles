@@ -50,19 +50,20 @@
 
     ap = add -p
     ai = add -i
+    an = add -N
 
-    ci = commit
-    cif = commit --fixup
-    cm = commit -m
-    cia = commit --amend
-    cian = commit --amend --no-edit
-    rb = rebase
-    rbi = rebase -i
+    ci = commit -S
+    cif = commit -S --fixup
+    cm = commit -S -m
+    cia = commit -S --amend
+    cian = commit -S --amend --no-edit
+    rb = rebase -S
+    rbi = rebase -S -i
 
     alias = config --get-regexp ^alias\\.
     confg = config --global
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+    lg  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an [%G?]>%Creset' --abbrev-commit
+    lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an [%G?]>%Creset' --abbrev-commit --all
 [pager]
 	diff = diff-so-fancy | less --tabs=4 -RFX
 	show = diff-so-fancy | less --tabs=4 -RFX
