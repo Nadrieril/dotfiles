@@ -1,12 +1,12 @@
 [core]
-   # Git is not power-cut-safe by default:
-   # http://marc.info/?l=git&m=143489570403305&w=4
-   fsyncObjectFiles = yes
+    # Git is not power-cut-safe by default:
+    # http://marc.info/?l=git&m=143489570403305&w=4
+    fsyncObjectFiles = yes
 
 [user]
     name = Nadrieril
     email = nadrieril@gmail.com
-	signingkey = 3155D0CDF337E6B482871C59D1410AAF6C99F118
+    signingkey = 3155D0CDF337E6B482871C59D1410AAF6C99F118
 [branch]
     autosetuprebase = always
 [push]
@@ -65,8 +65,8 @@
     lg  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an [%G?]>%Creset' --abbrev-commit
     lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an [%G?]>%Creset' --abbrev-commit --all
 [pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
-	log = diff-so-fancy | less --tabs=4 -RFX
+    diff = diff-so-fancy | less --tabs=4 -RFX
+    show = diff-so-fancy | less --tabs=4 -RFX
+    log = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
-	diffFilter = diff-so-fancy
+    diffFilter = diff-so-fancy
