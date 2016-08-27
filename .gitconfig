@@ -70,3 +70,5 @@
     log = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
     diffFilter = diff-so-fancy
+[gpg]
+    program = gpg2
