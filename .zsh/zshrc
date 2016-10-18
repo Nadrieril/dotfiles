@@ -1,4 +1,4 @@
-export TERM=screen-256color
+#export TERM=screen-256color
 # Auto-tmux
 if [ "$PS1" != "" -a -z "$TMUX" ]; then
     command -v tmux 2>&1 && ((tmux ls | grep -vq attached && tmux at) || tmux new-session) && exit 0
