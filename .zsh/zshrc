@@ -17,7 +17,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 # Oh-my-zsh
-plugins=(colorize colored-man debian docker git per-directory-history rsync systemd tmuxinator z)
+plugins=(colorize colored-man debian git per-directory-history rsync systemd taskwarrior)
 
 export ZSH=$ZSH_DIR/oh-my-zsh
 ZSH_THEME="ys"

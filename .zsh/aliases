@@ -11,13 +11,14 @@ alias getip='wget -qO- http://ipecho.net/plain ; echo'
 alias explore='nautilus "$PWD"'
 alias scu='systemctl --user'
 
-alias n='nano'
+alias n='nano -m -w'
 function nx () {
   nano $1
   [[ -f $1 ]] && chmod +x $1
 }
 alias e='editor'
 alias gdiff='git --no-pager diff --no-index --'
+alias tm='timew'
 
 
 function xelpaste() {
