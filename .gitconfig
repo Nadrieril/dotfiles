@@ -54,13 +54,13 @@
     ai = add -i
     an = add -N
 
-    ci = commit -S
-    cif = commit -S --fixup
-    cm = commit -S -m
-    cia = commit -S --amend
-    cian = commit -S --amend --no-edit
-    rb = rebase -S
-    rbi = rebase -S -i
+    ci = commit
+    cif = commit --fixup
+    cm = commit -m
+    cia = commit --amend
+    cian = commit --amend --no-edit
+    rb = rebase
+    rbi = rebase -i
 
     alias = config --get-regexp ^alias\\.
     confg = config --global
