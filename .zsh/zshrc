@@ -9,6 +9,8 @@ fi
 
 ZSH_DIR=$HOME/.zsh
 
+umask 027
+
 # Basic setup
 HISTFILE=$ZSH_DIR/history
 HISTORY_BASE=$ZSH_DIR/per-dir-history
