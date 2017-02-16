@@ -3,6 +3,12 @@
 
 TMPSH_DIR="$(mktemp -d -p /tmp)"
 cd "$TMPSH_DIR" || exit 1
-$SHELL
+
+if [ -z $1 ]; then
+  $SHELL
+else
+  "$@"
+fi
+
 cd /tmp || exit 1
 rm -rf "$TMPSH_DIR"
