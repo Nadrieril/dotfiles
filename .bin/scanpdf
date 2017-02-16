@@ -1,0 +1,15 @@
+#!/bin/bash
+OLD_DIR="$PWD"
+
+TMPSH_DIR="$(mktemp -d -p /tmp)"
+cd "$TMPSH_DIR" || exit 1
+
+scanbatch "$@" -f tiff
+
+find -name '*.tif' | sort | while read f; do echo "Converting $f..."; convert "$f" "${f:r}.jpg"; done
+echo "Converting to pdf..."
+convert "*.jpg" out.pdf
+mv out.pdf "$OLD_DIR/out.pdf"
+
+cd /tmp || exit 1
+rm -rf "$TMPSH_DIR"
