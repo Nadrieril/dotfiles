@@ -1,0 +1,3 @@
+#!/bin/sh
+# Concatenate the lines in input
+awk '{print}' ORS=' '
