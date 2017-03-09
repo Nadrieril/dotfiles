@@ -93,4 +93,4 @@ source $ZSH_DIR/aliases
 source $ZSH_DIR/proxy
 
 export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
-export EDITOR="nano"
+export EDITOR="nvim"

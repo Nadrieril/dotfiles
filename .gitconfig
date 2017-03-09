@@ -2,6 +2,7 @@
     # Git is not power-cut-safe by default:
     # http://marc.info/?l=git&m=143489570403305&w=4
     fsyncObjectFiles = yes
+    excludesfile = ~/.cvsignore
 
 [user]
     name = Nadrieril
