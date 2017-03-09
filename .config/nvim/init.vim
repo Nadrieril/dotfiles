@@ -12,6 +12,9 @@ set updatetime=1000
 set whichwrap=h,l,b,s,<,>,[,] " arrow keys, bs, space wrap to next/prev line
 set ignorecase smartcase " case insensitive search if all lowercase
 
+" Don't eval modelines by default. See Gentoo bugs #14088 and #73715.
+set modelines=0
+set nomodeline
 
 " Indentation
 set copyindent " Copy the structure of existing lines when indenting a new line
@@ -263,8 +266,3 @@ command! -nargs=1 Wroot :w !sudo tee <args> > /dev/null
 
 " }}}
 
-
-
-
-
-" vim: set fdm=marker :
