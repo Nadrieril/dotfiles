@@ -14,6 +14,7 @@ set ignorecase smartcase " case insensitive search if all lowercase
 set breakindent
 set fixendofline " Ensure file ends with new line
 set nojoinspaces
+set virtualedit=onemore " Allow cursor to move one char past the end of the line
 
 " Don't eval modelines by default. See Gentoo bugs #14088 and #73715.
 set modelines=0
@@ -110,6 +111,11 @@ highlight CursorColumn cterm=none ctermbg=DarkGrey
 " Mappings {{{
 
 " General {{{
+" Make $ move to the end of the line when virtualedit=onemore
+noremap $ g$
+
+" Leave the cursor in place when exiting Insert mode
+inoremap <ESC> <C-O>mz<ESC>`z
 
 " Backspace deletes as expected
 map <BS> "_X
@@ -137,11 +143,11 @@ imap kj <ESC>
 map <Tab> <ESC>
 
 " Sometimes we forget to leave insertion mode
-inoremap :w<CR> <ESC>:w<CR>
-inoremap :wq<CR> <ESC>:wq<CR>
+imap :w<CR> <ESC>:w<CR>
+imap :wq<CR> <ESC>:wq<CR>
 
 " Undo in insertion mode
-inoremap <C-U> <Esc>ui
+imap <C-U> <Esc>ui
 
 " Join with next line
 inoremap <C-j> <C-o>J
