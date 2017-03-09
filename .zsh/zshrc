@@ -44,7 +44,7 @@ source $ZSH_DIR/plugins/zsh-completions/zsh-completions.plugin.zsh
 source $ZSH_DIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 CASE_SENSITIVE="false"
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ZSH_HIGHLIGHT_STYLES[globbing]='none'
