@@ -34,6 +34,14 @@ if has("eval")
   let is_bash=1
 endif
 
+" Configure completion
+set wildmenu
+set wildmode=longest:list,full
+set wildignore+=*~,*.bak,*.o,*.pyc,*.pyo,*.swo,*.swp
+set wildignore+=*.dll,*.exe,*.so,*.swf,*.zip,*.tar
+set wildignore+=*/.git/*,*/.hq/*,*/.svn/*
+set wildignorecase
+
 
 " }}}
 
