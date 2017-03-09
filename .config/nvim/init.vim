@@ -11,6 +11,9 @@ set backupskip+=*.gpg " Don't save backups of *.gpg files
 set updatetime=1000
 set whichwrap=h,l,b,s,<,>,[,] " arrow keys, bs, space wrap to next/prev line
 set ignorecase smartcase " case insensitive search if all lowercase
+set breakindent
+set fixendofline " Ensure file ends with new line
+set nojoinspaces
 
 " Don't eval modelines by default. See Gentoo bugs #14088 and #73715.
 set modelines=0
@@ -22,6 +25,7 @@ set expandtab " Always use space, no tabs
 set shiftwidth=4
 set softtabstop=4 " number of spaces in tab when editing
 set tabstop=4 " number of visual spaces per TAB
+set smartindent
 
 
 " Enable folding based on indentation
@@ -35,13 +39,14 @@ if has("eval")
 endif
 
 " Configure completion
-set wildmenu
-set wildmode=longest:list,full
+set wildmode=longest:full,full
 set wildignore+=*~,*.bak,*.o,*.pyc,*.pyo,*.swo,*.swp
 set wildignore+=*.dll,*.exe,*.so,*.swf,*.zip,*.tar
 set wildignore+=*/.git/*,*/.hq/*,*/.svn/*
 set wildignorecase
 
+" Bepo langmap
+" set langmap=ba,éz,pe,or,èt,çy,vu,di,lo,fp,j^,z$,aq,us,id,ef,\\,g,ch,tj,sk,rl,nm,mù,^*,ê<,àw,yx,xc,.v,kb,'n,q\\,,g\\;,h:,f!,BA,ÉZ,PE,OR,ÈT,ÇY,VU,DI,LO,FP,J¨,Z£,AQ,US,ID,EF,?G,CH,TJ,SK,RL,NM,M%,!*,Ê>,ÀW,YX,XC,:V,KB,\\;N,QG,G.,H/,F§,@œ,_&,"é,«",»',((,)-,+è,-_,*ç,/à,=),%=,$Œ,^°,µ+,#“,{´,}~,<#,>{,[[,]|,±`,¬\,×^,÷@,¯],%}
 
 " }}}
 
@@ -56,12 +61,15 @@ set number " Show line numbers
 set relativenumber " Show relative line numbers
 set numberwidth=3 " When displaying line numbers, don't use an annoyingly wide number column.
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 2 " allows cursor change in tmux
-set cursorline " highlight current line
-set cursorcolumn " highlight cursor column
 set list
 set listchars=tab:›─,trail:─,nbsp:␣,extends:»,precedes:«
 set showmatch " Show matching brackets
 " set showmode " Show the current mode on the last line
+
+set cursorline " highlight current line
+set cursorcolumn " highlight cursor column
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
 
 " t: autowrap text using textwidth
 " l: long lines are not broken in insert mode
@@ -69,13 +77,16 @@ set showmatch " Show matching brackets
 " r: insert comment leader after <CR>
 " o: insert comment leader after o or O
 set formatoptions-=t
-set formatoptions+=lcr
+set formatoptions+=lc
 
 " options for diff mode
 " set diffopt=filler
 " set diffopt+=context:4
 " set diffopt+=iwhite
 " set diffopt+=vertical
+
+set splitbelow
+set splitright
 
 
 " Colors
@@ -98,20 +109,32 @@ highlight CursorColumn cterm=none ctermbg=DarkGrey
 
 " Mappings {{{
 
-" {{{ General
+" General {{{
+
+" Backspace deletes as expected
+map <BS> "_X
+
+
 " easier move screen up/down
 nmap <M-j> 5<C-e>
 nmap <M-k> 5<C-y>
 nmap <C-j> <C-D>
 nmap <C-k> <C-U>
 
+" Disable arrow keys
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
 " Fold/unfold code with space
 nnoremap <SPACE> za
 vnoremap <SPACE> zf
 
-" Escape when inserting "jk"
-inoremap jk <ESC>
-inoremap kj <ESC>
+" Easier escape
+imap jk <ESC>
+imap kj <ESC>
+map <Tab> <ESC>
 
 " Sometimes we forget to leave insertion mode
 inoremap :w<CR> <ESC>:w<CR>
@@ -136,8 +159,8 @@ if maparg('<C-L>', 'n') ==# ''
 endif
 
 " Indentation
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
+" vnoremap <Tab> >gv
+" vnoremap <S-Tab> <gv
 vnoremap > >gv
 vnoremap < <gv
 
