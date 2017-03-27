@@ -94,3 +94,12 @@
 [submodule ".config/nvim/bundle/vim-pathogen"]
 	path = .config/nvim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule ".config/nvim/bundle/vim-scala"]
+	path = .config/nvim/bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala
+[submodule ".config/nvim/bundle/auto-pairs"]
+	path = .config/nvim/bundle/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
+[submodule ".config/nvim/bundle/syntastic"]
+	path = .config/nvim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic
