@@ -15,6 +15,7 @@ set breakindent
 set fixendofline " Ensure file ends with new line
 set nojoinspaces
 set virtualedit=onemore " Allow cursor to move one char past the end of the line
+set autoread " Reload current file if changed on disk but not in buffer
 
 " Don't eval modelines by default. See Gentoo bugs #14088 and #73715.
 set modelines=0
@@ -59,7 +60,7 @@ set scrolloff=12 " Always show at least n lines above and below the cursor
 set sidescrolloff=5 " Always show at least 5 columns at cursor sides in nowrap mode
 set ffs=unix,dos,mac " Use <NL>-terminated lines by default, then <CR><NL> and finally <CR>
 set number " Show line numbers
-set relativenumber " Show relative line numbers
+" set relativenumber " Show relative line numbers
 set numberwidth=3 " When displaying line numbers, don't use an annoyingly wide number column.
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 2 " allows cursor change in tmux
 set list
@@ -68,9 +69,9 @@ set showmatch " Show matching brackets
 " set showmode " Show the current mode on the last line
 
 set cursorline " highlight current line
-set cursorcolumn " highlight cursor column
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
+" set cursorcolumn " highlight cursor column
+" au WinLeave * set nocursorline nocursorcolumn
+" au WinEnter * set cursorline cursorcolumn
 
 " t: autowrap text using textwidth
 " l: long lines are not broken in insert mode
@@ -92,18 +93,15 @@ set splitright
 
 " Colors
 set background=dark
-set termguicolors
+" set termguicolors
+
+" " Highlight extra whitespaces
+" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkred
+" highlight ExtraWhitespace ctermbg=darkred
+" let g:m_extra_whitespace = matchadd('ExtraWhitespace', '\s\+$')
+
 colorscheme onedark
 let g:airline_theme='onedark'
-
-" Highlight extra whitespaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-let g:m_extra_whitespace = matchadd('ExtraWhitespace', '\s\+$')
-
-" keep cursor column last so it overrides all others
-highlight CursorLine cterm=none ctermbg=15
-highlight CursorColumn cterm=none ctermbg=DarkGrey
-
 
 " }}}
 
@@ -113,6 +111,7 @@ highlight CursorColumn cterm=none ctermbg=DarkGrey
 " General {{{
 " Make $ move to the end of the line when virtualedit=onemore
 noremap $ g$
+noremap £ $
 
 " Leave the cursor in place when exiting Insert mode
 inoremap <ESC> <C-O>mz<ESC>`z
@@ -142,12 +141,20 @@ imap jk <ESC>
 imap kj <ESC>
 map <Tab> <ESC>
 
-" Sometimes we forget to leave insertion mode
-imap :w<CR> <ESC>:w<CR>
-imap :wq<CR> <ESC>:wq<CR>
+" " Sometimes we forget to leave insertion mode
+" imap :w<CR> <ESC>:w<CR>
+" imap :wq<CR> <ESC>:wq<CR>
 
 " Undo in insertion mode
 imap <C-U> <Esc>ui
+
+" (un)comment in insert mode
+imap <C-_> <C-o>gcc<C-o>$
+
+" Easier save
+imap <C-S> <Esc>:w<CR>
+nnoremap <C-S> :w<CR>
+nnoremap <C-z> :q<CR>
 
 " Join with next line
 inoremap <C-j> <C-o>J
@@ -156,8 +163,8 @@ inoremap <C-j> <C-o>J
 map à 0
 
 " Duplicate line/block
-vnoremap <Leader>d y'>p
-nnoremap <Leader>d yyp
+vnoremap <Leader>d "zy'>"zp
+nnoremap <Leader>d "zyy"zp
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -183,6 +190,20 @@ vnoremap <M-k> :m'<-2<CR>gv=gv
 " nmap <right> <C-W>l
 " nmap <up> <C-W>k
 " nmap <down> <C-W>j
+
+" * sets current word/selection as search pattern
+nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>
+function! MakePattern(text)
+  let pat = escape(a:text, '\')
+  " Trim whitespace
+  let pat = substitute(pat, '\_s\+$', '', '')
+  let pat = substitute(pat, '^\_s\+', '', '')
+  " Expand internal whitespace
+  let pat = substitute(pat, '\_s\+',  '\\_s\\+', 'g')
+  return '\\V' . escape(pat, '\"')
+endfunction
+vnoremap <silent> * "zy:<C-U>let @/="<C-R>=MakePattern(@z)<CR>"<CR>
+
 "}}}
 
 "f keys {{{
@@ -199,7 +220,7 @@ vnoremap <M-k> :m'<-2<CR>gv=gv
 " nmap <F8> :call WriteTrace()<CR>
 " nmap <F9> \ph
 " " <F10>
-" " <F11> don't use; terminal full-screen "
+" " <F11> don't use; terminal full-screen
 " " <F12>
 " " }}}
 
@@ -256,20 +277,32 @@ let g:airline_extensions = ['branch', 'tabline']
 let g:committia_open_only_vim_starting = 0
 let g:committia_hooks = {}
 function! g:committia_hooks.edit_open(info)
-    setlocal spell
+  setlocal spell
 
-    if a:info.vcs ==# 'git' && getline(1) ==# ''
-        startinsert
-    end
+  if a:info.vcs ==# 'git' && getline(1) ==# ''
+    startinsert
+  end
 
-    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
-    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+  imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
+  imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
 endfunction
 
 " yggdroot/indentline
 " let g:indentLine_setColors = 0
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 59
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_scala_checkers = ["scalac"]
 
 " }}}
 
@@ -299,6 +332,20 @@ endfunction
 
 " Save with sudo
 command! -nargs=1 Wroot :w !sudo tee <args> > /dev/null
+
+" Strip trailing whitespace
+function! StripTrailingWhite()
+  let l:winview = winsaveview()
+  silent! %s/\s\+$//
+  call winrestview(l:winview)
+endfunction
+
+" }}}
+
+" Autocmds {{{
+
+" Remove trailing whitespace on write
+autocmd FileType c,cpp,java,php,scala,hs autocmd BufWritePre <buffer> call StripTrailingWhite()
 
 
 " }}}
