@@ -304,6 +304,15 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_scala_checkers = ["scalac"]
 
+" vim-pandoc-syntax
+let g:pandoc#syntax#conceal#use = 0
+augroup pandoc_syntax
+  au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup end
+
+" tex.vim
+let g:tex_conceal = "amgs"
+
 " }}}
 
 

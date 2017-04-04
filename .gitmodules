@@ -103,3 +103,6 @@
 [submodule ".config/nvim/bundle/syntastic"]
 	path = .config/nvim/bundle/syntastic
 	url = https://github.com/vim-syntastic/syntastic
+[submodule ".config/nvim/bundle/vim-pandoc-syntax"]
+	path = .config/nvim/bundle/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax
