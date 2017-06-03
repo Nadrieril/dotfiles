@@ -106,3 +106,18 @@
 [submodule ".config/nvim/bundle/vim-pandoc-syntax"]
 	path = .config/nvim/bundle/vim-pandoc-syntax
 	url = https://github.com/vim-pandoc/vim-pandoc-syntax
+[submodule ".config/nvim/bundle/vimpager"]
+	path = .config/nvim/bundle/vimpager
+	url = http://github.com/rkitover/vimpager
+[submodule ".config/nvim/bundle/vim-exchange"]
+	path = .config/nvim/bundle/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange
+[submodule ".config/nvim/bundle/vim-swap"]
+	path = .config/nvim/bundle/vim-swap
+	url = https://github.com/kurkale6ka/vim-swap
+[submodule ".config/nvim/bundle/vim-lastplace"]
+	path = .config/nvim/bundle/vim-lastplace
+	url = https://github.com/farmergreg/vim-lastplace
+[submodule ".config/nvim/bundle/vim-stay"]
+	path = .config/nvim/bundle/vim-stay
+	url = https://github.com/kopischke/vim-stay

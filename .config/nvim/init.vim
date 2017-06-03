@@ -16,6 +16,8 @@ set fixendofline " Ensure file ends with new line
 set nojoinspaces
 set virtualedit=onemore " Allow cursor to move one char past the end of the line
 set autoread " Reload current file if changed on disk but not in buffer
+set mouse=a
+set viewoptions=cursor,folds,slash,unix " Recommended by vim-stay plugin
 
 " Don't eval modelines by default. See Gentoo bugs #14088 and #73715.
 set modelines=0
@@ -313,6 +315,10 @@ augroup end
 " tex.vim
 let g:tex_conceal = "amgs"
 
+" auto-pairs
+let g:AutoPairsMultilineClose = 0
+
+
 " }}}
 
 
@@ -355,7 +361,6 @@ endfunction
 
 " Remove trailing whitespace on write
 autocmd FileType c,cpp,java,php,scala,hs autocmd BufWritePre <buffer> call StripTrailingWhite()
-
 
 " }}}
 
