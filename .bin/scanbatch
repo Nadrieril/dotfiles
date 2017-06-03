@@ -3,7 +3,7 @@
 DEFAULT_OPTIONS="-d epjitsu --page-height 0"
 FORMAT_STR="out%03d"
 MODE="Gray"
-RESOLUTION="200"
+RESOLUTION="150"
 SOURCE="ADF Duplex"
 FORMAT="tiff"
 BATCH_START=""
