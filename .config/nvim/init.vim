@@ -193,10 +193,9 @@ vnoremap <M-k> :m'<-2<CR>gv=gv
 " nmap <up> <C-W>k
 " nmap <down> <C-W>j
 
-" * sets current word/selection as search pattern
-nnoremap * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>
+" " sets current word/selection as search pattern
 function! MakePattern(text)
-  let pat = escape(a:text, '\')
+  let pat = escape(a:text, '[]/\.*')
   " Trim whitespace
   let pat = substitute(pat, '\_s\+$', '', '')
   let pat = substitute(pat, '^\_s\+', '', '')
@@ -204,7 +203,20 @@ function! MakePattern(text)
   let pat = substitute(pat, '\_s\+',  '\\_s\\+', 'g')
   return '\\V' . escape(pat, '\"')
 endfunction
-vnoremap <silent> * "zy:<C-U>let @/="<C-R>=MakePattern(@z)<CR>"<CR>
+function! EscapePattern(text)
+  return escape(a:text, '[]/\.*\"')
+endfunction
+function! HighlightText(text)
+  return 'let @/="<C-R>='.a:text.'<CR>"\|set hlsearch'
+endfunction
+function! ReplaceFromCursor(text)
+  return ',$s/<C-R>='.a:text.'<CR>//gce\|echo "Continue at beginning of file? (y/q)"\|if getchar()==121\|1,''''-&&\|en'.repeat('<left>',77)
+endfunction
+
+" vmap / y:execute "/".escape(@",'[]/\.*')<CR>`<
+exe 'nnoremap <silent> * :'.HighlightText('expand("<cword>")').'<CR>'
+exe 'vnoremap <silent> * y:'.HighlightText('MakePattern(@")').'<CR>'
+exe 'vnoremap q* y<ESC>:'.HighlightText('MakePattern(@")').'<CR>:'.ReplaceFromCursor('EscapePattern(@")')
 
 "}}}
 
