@@ -1,1 +1,0 @@
-../../../bundle/onedark.vim/autoload/airline/themes/onedark.vim

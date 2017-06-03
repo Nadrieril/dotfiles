@@ -1,0 +1,12 @@
+{
+  "auto-pairs": {
+    "rev": "20ec5b043f82ffa11a079f545438e6544ef112ed",
+    "sha256": "14pypb2kfrylhn73gx964hls040zaqnpl1am6f0yi01h524xz0xf",
+    "url": "https://github.com/jiangmiao/auto-pairs"
+  },
+  "onedark": {
+    "rev": "d94b5df94b5aaa77c4dfb62033991725ffae4001",
+    "sha256": "10qmzgzg4qhh0niirrh32y4ddbsn7rkl4486003hd89s1j5r8iil",
+    "url": "https://github.com/joshdick/onedark.vim"
+  }
+}
