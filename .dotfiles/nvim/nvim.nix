@@ -85,7 +85,7 @@ neovim.override {
     };
 
     customRC = ''
-      source /home/nadrieril/.config/nvim/init.vim
+      source ~/.config/nvim/init.vim
 
       au BufRead,BufNewFile *.nix set filetype=nix
       au BufRead,BufNewFile *.j set filetype=ledger
