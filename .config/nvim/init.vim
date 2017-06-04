@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " General settings {{{
 let mapleader="," " Use comma as the leader key
