@@ -33,6 +33,8 @@ neovim.override {
             ## Help edition
             "auto-pairs"
             "commentary"
+            "latex-unicoder"
+            "nrrwrgn" # Narrow region - zoom editing
             "surround"
             "undotree"
             "vim-easymotion"
@@ -41,9 +43,16 @@ neovim.override {
             "vim-repeat" # Better '.'
             "vim-rsi" # Readline bindings in insert/command mode
             "vim-swap" # Swap text around given delimiter
+            "vim-textmanip" # Duplicate/move text around
 
             ## Others
             "ctrlp"
+            "neomake"
+            "deoplete-nvim" # Completion engine
+            "neosnippet" # Snippets
+            # "neosnippet-snippets"
+            "vim-snippets"
+            # "supertab"
             "sleuth" # Infer buffer options
             "vim-eunuch" # Unix helpers; auto-chmod +x scripts
             "vim-obsession" # Ease session saving
@@ -58,21 +67,23 @@ neovim.override {
         { ft_regex = "^rust\$"; name = "vim-rust"; }
         { ft_regex = "^haskell\$";
           names = [
-            "vimproc"
-            "ghcmod"
-            "neco-ghc"
             "haskell-vim"
-            "hlint-refactor-vim"
+            "vimproc"
+            # "ghcmod"
+            "neco-ghc"
+            # "hlint-refactor-vim"
+            # "syntastic"
+            # "snipmate"
+            # "vim-snippets"
           ];
         }
 
         ## Lazy loaded
         { tag = "lazy";
           names = [
-            "syntastic"
-            "supertab"
-            "vim-snippets"
-            "deoplete-nvim"
+            # "syntastic"
+            # "snipmate"
+            # "vim-snippets"
             "vimpager" # Turn vim into a pager
             "vim-rhubarb" # Github add-on for fugitive
             # "rainbow_parentheses"
@@ -89,27 +100,6 @@ neovim.override {
 
       au BufRead,BufNewFile *.nix set filetype=nix
       au BufRead,BufNewFile *.j set filetype=ledger
-
-      " Disable haskell-vim omnifunc
-      let g:haskellmode_completion_ghc = 0
-      autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-
-      let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-
-      " Use deoplete.
-      let g:deoplete#enable_at_startup = 1
-
-      map <silent> <leader>ht :GhcModType<CR>
-      map <silent> <leader>hT :GhcModTypeInsert<CR>
-      map <silent> <leader>hc :GhcModSplitFunCase<CR>
-      map <silent> <leader>hl :GhcModTypeClear<CR>
-      
-      " Disable hlint-refactor-vim's default keybindings
-      let g:hlintRefactor#disableDefaultKeybindings = 1
-
-      " hlint-refactor-vim keybindings
-      map <silent> <leader>hr :call ApplyOneSuggestion()<CR>
-      map <silent> <leader>hR :call ApplyAllSuggestions()<CR>
     '';
   };
 }

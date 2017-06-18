@@ -58,7 +58,7 @@ set wildignorecase
 " UI settings {{{
 set ruler " Show the cursor position all the time
 set showfulltag " View full tag when doing a tag search
-set scrolloff=12 " Always show at least n lines above and below the cursor
+set scrolloff=6 " Always show at least n lines above and below the cursor
 set sidescrolloff=5 " Always show at least 5 columns at cursor sides in nowrap mode
 set ffs=unix,dos,mac " Use <NL>-terminated lines by default, then <CR><NL> and finally <CR>
 set number " Show line numbers
@@ -80,14 +80,13 @@ set cursorline " highlight current line
 " c: autowrap comments using textwidth, inserting leader
 " r: insert comment leader after <CR>
 " o: insert comment leader after o or O
-set formatoptions-=t
-set formatoptions+=lc
+set formatoptions=clqr
 
 " options for diff mode
-" set diffopt=filler
+set diffopt=filler
 " set diffopt+=context:4
 " set diffopt+=iwhite
-" set diffopt+=vertical
+set diffopt+=vertical
 
 set splitbelow
 set splitright
@@ -123,8 +122,6 @@ map <BS> "_X
 
 
 " easier move screen up/down
-nmap <M-j> 5<C-e>
-nmap <M-k> 5<C-y>
 nmap <C-j> <C-D>
 nmap <C-k> <C-U>
 
@@ -134,18 +131,9 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
-" Fold/unfold code with space
-nnoremap <SPACE> za
-vnoremap <SPACE> zf
-
-" Easier escape
-imap jk <ESC>
-imap kj <ESC>
-map <Tab> <ESC>
-
-" " Sometimes we forget to leave insertion mode
-" imap :w<CR> <ESC>:w<CR>
-" imap :wq<CR> <ESC>:wq<CR>
+" " Fold/unfold code with space
+" nnoremap <SPACE> za
+" vnoremap <SPACE> zf
 
 " Undo in insertion mode
 imap <C-U> <Esc>ui
@@ -163,15 +151,14 @@ inoremap <C-j> <C-o>J
 
 " Convenience
 map à 0
+nmap <CR> o<ESC>
 
 " Duplicate line/block
-vnoremap <Leader>d "zy'>"zp
-nnoremap <Leader>d "zyy"zp
+" vnoremap <Leader>d "zy'>"zp
+" nnoremap <Leader>d "zyy"zp
 
 " Use <C-L> to clear the highlighting of :set hlsearch.
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
+nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Indentation
 " vnoremap <Tab> >gv
@@ -184,8 +171,8 @@ nnoremap <M-j> :m.+1<CR>==
 nnoremap <M-k> :m.-2<CR>==
 inoremap <M-j> <Esc>:m.+1<CR>==gi
 inoremap <M-k> <Esc>:m.-2<CR>==gi
-vnoremap <M-j> :m'>+1<CR>gv=gv
-vnoremap <M-k> :m'<-2<CR>gv=gv
+" vnoremap <M-j> :m'>+1<CR>gv=gv
+" vnoremap <M-k> :m'<-2<CR>gv=gv
 
 " " use arrow keys to swap between split windows
 " nmap <left> <C-W>h
@@ -285,7 +272,12 @@ map <Leader> <Plug>(easymotion-prefix)
 
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline_extensions = ['branch', 'tabline']
+let g:airline_extensions = ['branch', 'tabline', 'ctrlp', 'obsession', 'neomake']
+let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#obsession#enabled = 1
 
 " rhysd/committia.vim
 let g:committia_open_only_vim_starting = 0
@@ -307,9 +299,9 @@ let g:indentLine_char = '│'
 let g:indentLine_color_term = 59
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -317,6 +309,49 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_scala_checkers = ["scalac"]
+let g:syntastic_haskell_checkers = []
+
+" neomake
+" let g:neomake_haskell_enabled_makers = ['hlint', 'ghcmod']
+" let g:neomake_haskell_enabled_makers = ['hlint']
+nmap <C-B> <C-S>:Neomake!<CR>
+imap <C-B> <C-S>:Neomake!<CR>
+
+function! OnNeomakeJobFinished() abort
+  let context = g:neomake_hook_context
+  echom printf('The job for maker "%s" exited (%s)',
+    \ context.jobinfo.maker.name, context.jobinfo.exit_code)
+endfunction
+autocmd User NeomakeJobFinished call OnNeomakeJobFinished()
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#set('_', 'matchers', ['matcher_fuzzy'])
+set completeopt=menuone,preview,longest
+
+imap <expr><TAB>
+      \ neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" :
+      \ pumvisible() ? "\<Down>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ deoplete#mappings#manual_complete()
+imap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"
+
+
+" supertab
+" let g:SuperTabLongestEnhanced = 1
+
+" neosnippet
+let g:neosnippet#enable_completed_snippet = 1
+autocmd CompleteDone * if !empty(v:completed_item) && neosnippet#expandable() | exec "normal i\<Plug>(neosnippet_expand)" | end
+
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+let g:neosnippet#disable_runtime_snippets = { '_' : 1 }
 
 " vim-pandoc-syntax
 let g:pandoc#syntax#conceal#use = 0
@@ -330,6 +365,39 @@ let g:tex_conceal = "amgs"
 " auto-pairs
 let g:AutoPairsMultilineClose = 0
 
+" latex-unicoder
+let g:unicoder_no_map = 1
+nmap <Leader>l <Plug>Unicoder
+imap <C-l> <Plug>Unicoder
+vmap <Leader>l <Plug>Unicoder
+
+" t9md/vim-textmanip
+nmap <leader>d <Plug>(textmanip-duplicate-down)
+nmap <leader>D <Plug>(textmanip-duplicate-up)
+vmap <leader>d <Plug>(textmanip-duplicate-down)
+vmap <leader>D <Plug>(textmanip-duplicate-up)
+vmap <leader>Dl <Plug>(textmanip-duplicate-right)
+vmap <leader>Dh <Plug>(textmanip-duplicate-left)
+
+nmap <M-j> <Plug>(textmanip-move-down)
+nmap <M-k> <Plug>(textmanip-move-up)
+vmap <M-j> <Plug>(textmanip-move-down)
+vmap <M-k> <Plug>(textmanip-move-up)
+vmap <M-h> <Plug>(textmanip-move-left)
+vmap <M-l> <Plug>(textmanip-move-right)
+
+" haskell-vim
+" Disable haskell-vim omnifunc
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+let g:haskell_enable_quantification = 1   " enable highlighting of `forall`
+
+" ghc-mod
+map <silent> <leader>ht :GhcModType<CR>
+map <silent> <leader>hT :GhcModTypeInsert<CR>
+map <silent> <leader>hc :GhcModSplitFunCase<CR>
+map <silent> <leader>hl :GhcModTypeClear<CR>
 
 " }}}
 

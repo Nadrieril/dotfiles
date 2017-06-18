@@ -1,13 +1,23 @@
 {
   "auto-pairs": {
-    "rev": "20ec5b043f82ffa11a079f545438e6544ef112ed",
-    "sha256": "14pypb2kfrylhn73gx964hls040zaqnpl1am6f0yi01h524xz0xf",
+    "rev": "6afc850e2429e6832a1b093e32a31e0b5eff477d",
+    "sha256": "1pbb6lc28lzkisa7mq3dfy0cbr3p3ihkkwphnmza9r0j9r3m8bza",
     "url": "https://github.com/jiangmiao/auto-pairs"
   },
   "indentline": {
-    "rev": "e046aa9e6feb397464b9545e861daed607d3c60c",
-    "sha256": "0i5yfxnygricjds17la16h1ghpiji3as6nli9n11rks2s3pnj7na",
+    "rev": "328162351b608d47ac17675c7313154ef734d6e9",
+    "sha256": "0pbd05l25r95zd7721dvgys22k35aqh43l8w2z55g29kn32c4vrm",
     "url": "https://github.com/yggdroot/indentline"
+  },
+  "latex-unicoder": {
+    "rev": "2a6feec9f6dafa8079de3c040c7133e16719e444",
+    "sha256": "01wkg4m0x47gshhgdhvm1wkm0j8m13kldn8k9hr2jhvphps3f2vy",
+    "url": "https://github.com/joom/latex-unicoder.vim"
+  },
+  "nrrwrgn": {
+    "rev": "92ba05e7d2c485c7985dcb69979cf8f24b214a8a",
+    "sha256": "1hc7ahf2cqrz34kbvbvyssiqga8vi4b4mnczsa67a9srrq58ldla",
+    "url": "https://github.com/chrisbra/NrrwRgn"
   },
   "onedark": {
     "rev": "d94b5df94b5aaa77c4dfb62033991725ffae4001",
@@ -30,8 +40,8 @@
     "url": "https://github.com/tpope/vim-obsession"
   },
   "vim-rhubarb": {
-    "rev": "feac2474db8ac06c1c520dfac768e9318e00be13",
-    "sha256": "1mp5zarpc44w53z3pb77hsam488sm726zrc68k193rkx8dq7wysw",
+    "rev": "f7c4a493e63a62730626d7e5a005c1eadf8e5ffd",
+    "sha256": "18vbh3v8gwbmfmfa7wr2x2ml3cybn5sprhiz4zkq3fd0law0i9h6",
     "url": "https://github.com/tpope/vim-rhubarb"
   },
   "vim-rsi": {
@@ -53,6 +63,11 @@
     "rev": "0906e48d0bfaa8ada4c594dcfb0913bf352c4124",
     "sha256": "1cak6vf62rcmx6viazc4cfb78vzll9cmfcvj4rgzps1j8rxk59nm",
     "url": "https://github.com/kurkale6ka/vim-swap"
+  },
+  "vim-textmanip": {
+    "rev": "2c2b23cae19eef5e634fa4a3efdf7081363d65a0",
+    "sha256": "0y6pzr4vbmhjw5sqx30z2hqiykinjr6m0fyndyplfw67zf402mhl",
+    "url": "https://github.com/t9md/vim-textmanip"
   },
   "vim-textobj-lastpat": {
     "rev": "686aa837e3aa649b16572d5d55eb2d8c7fc6c78a",
