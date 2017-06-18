@@ -4,6 +4,7 @@ let userPackages = [
   ag
   fzf.bin
   gitAndTools.diff-so-fancy
+  (import ../nvim/nvim.nix)
 ];
 in
 

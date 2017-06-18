@@ -10,7 +10,7 @@ git submodule update --remote
 unset GIT_DIR
 
 $DOTFILESDIR/nvim/nvim-plugins.sh $DOTFILESDIR/nvim/nvim-plugins.json
-nix-env -if $DOTFILESDIR/nvim/nvim.nix
 nix-build $DOTFILESDIR/zsh/conf.nix --out-link $DOTFILESDIR/zsh/result
 
 tmux source-file ~/.tmux.conf
+
