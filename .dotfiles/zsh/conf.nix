@@ -1,9 +1,14 @@
 with import <nixpkgs> {};
 
+let userPackages = [
+  ag
+  fzf.bin
+  gitAndTools.diff-so-fancy
+];
+in
+
 writeText "zshrc" ''
-  export PATH="$PATH:${ag}/bin"
-  export PATH="$PATH:${fzf.bin}/bin"
-  export PATH="$PATH:${gitAndTools.diff-so-fancy}/bin"
+  export PATH="$PATH${pkgs.lib.concatMapStrings (pkg: ":${pkg}/bin") userPackages}"
   source ${fzf.bin}/share/shell/completion.zsh
   source ${fzf.bin}/share/shell/key-bindings.zsh
 ''
