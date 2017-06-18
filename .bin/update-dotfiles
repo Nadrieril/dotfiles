@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env sh
 DOTFILESDIR="$HOME/.dotfiles"
 export LC_ALL="en_US.UTF-8"
 

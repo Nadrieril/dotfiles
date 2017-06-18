@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 # Usage: replace "awk '{print $4}'" by "f 4"
 
 STR="{print"

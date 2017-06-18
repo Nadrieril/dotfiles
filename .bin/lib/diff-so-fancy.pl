@@ -1,1 +1,0 @@
-../../.dotfiles/diff-so-fancy/lib/diff-so-fancy.pl
