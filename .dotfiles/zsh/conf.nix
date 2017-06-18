@@ -9,7 +9,7 @@ let userPackages = [
 in
 
 writeText "zshrc" ''
-  export PATH="$PATH${pkgs.lib.concatMapStrings (pkg: ":${pkg}/bin") userPackages}"
+  export PATH="${pkgs.lib.concatMapStrings (pkg: "${pkg}/bin:") userPackages}$PATH"
   source ${fzf.bin}/share/shell/completion.zsh
   source ${fzf.bin}/share/shell/key-bindings.zsh
 ''
