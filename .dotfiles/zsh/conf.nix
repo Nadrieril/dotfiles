@@ -19,6 +19,7 @@ writeText "zshrc" ''
   source ${fzf.bin}/share/shell/key-bindings.zsh
 
   fpath+="${zsh-completions}/share/zsh/site-functions"
+  fpath+="${nix-zsh-completions}/share/zsh/site-functions"
   source ${zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   source ${zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ''

@@ -20,7 +20,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 # Oh-my-zsh
-plugins=(colorize colored-man git per-directory-history rsync systemd)
+plugins=(colorize colored-man-pages fasd git git-extras mosh nmap per-directory-history rsync systemd)
 
 ZSH_THEME="ys"
 
