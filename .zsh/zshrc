@@ -14,6 +14,7 @@ umask 027
 # Basic setup
 HISTFILE=$ZSH_DIR/history
 HISTORY_BASE=$ZSH_DIR/per-dir-history
+ZSH_CACHE_DIR=$ZSH_DIR/cache
 HIST_STAMPS="yyyy-mm-dd"
 HISTSIZE=100000
 SAVEHIST=100000
@@ -21,10 +22,7 @@ SAVEHIST=100000
 # Oh-my-zsh
 plugins=(colorize colored-man git per-directory-history rsync systemd)
 
-export ZSH=$ZSH_DIR/oh-my-zsh
 ZSH_THEME="ys"
-DISABLE_AUTO_UPDATE="true"
-source $ZSH/oh-my-zsh.sh
 
 # Autocompletion
 setopt extendedglob
@@ -35,18 +33,19 @@ bindkey -e
 zstyle :compinstall filename "$HOME/.zshrc"
 CORRECT_IGNORE='_*'
 
-fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit && compinit -i
+# fpath=(~/.zsh/completion $fpath)
+# autoload -Uz compinit && compinit -i
 # _comp_options+=(globdots)
 
-source $ZSH_DIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZSH_DIR/plugins/zsh-completions/zsh-completions.plugin.zsh
-source $ZSH_DIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# export ZSH_CUSTOM="$HOME/.zsh"
+source ~/.dotfiles/zsh/result
+autoload -Uz compinit && compinit
 
 CASE_SENSITIVE="false"
 # ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[globbing]='none'
 
 
@@ -91,7 +90,6 @@ mk_prompt
 
 source $ZSH_DIR/aliases
 source $ZSH_DIR/proxy
-source ~/.dotfiles/zsh/result
 
 export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
