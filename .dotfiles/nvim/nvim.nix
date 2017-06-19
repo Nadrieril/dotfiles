@@ -48,6 +48,7 @@ neovim.override {
             ## Others
             "ctrlp"
             "neomake"
+            "ale" # Linting
             "deoplete-nvim" # Completion engine
             "neosnippet" # Snippets
             # "neosnippet-snippets"
@@ -71,8 +72,6 @@ neovim.override {
             "vimproc"
             # "ghcmod"
             "neco-ghc"
-            # "hlint-refactor-vim"
-            # "syntastic"
             # "snipmate"
             # "vim-snippets"
           ];
@@ -81,13 +80,11 @@ neovim.override {
         ## Lazy loaded
         { tag = "lazy";
           names = [
-            # "syntastic"
             # "snipmate"
             # "vim-snippets"
             "vimpager" # Turn vim into a pager
             "vim-rhubarb" # Github add-on for fugitive
             # "rainbow_parentheses"
-            # "ale" # Asynchronous linter
           ];
         }
 

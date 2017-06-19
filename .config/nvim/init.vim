@@ -298,22 +298,16 @@ endfunction
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 59
 
-" syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_scala_checkers = ["scalac"]
-let g:syntastic_haskell_checkers = []
+" ale
+let g:ale_emit_conflict_warnings = 0
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_linters = {
+\   'haskell': ['stack-ghc', 'stack-ghc-mod', 'hlint'],
+\}
 
 " neomake
-" let g:neomake_haskell_enabled_makers = ['hlint', 'ghcmod']
-" let g:neomake_haskell_enabled_makers = ['hlint']
 nmap <C-B> <C-S>:Neomake!<CR>
 imap <C-B> <C-S>:Neomake!<CR>
 

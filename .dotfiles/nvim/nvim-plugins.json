@@ -1,4 +1,9 @@
 {
+  "ale": {
+    "rev": "11e17669d3836371a2b6c5878a2fce1b74db5fcf",
+    "sha256": "0mnvylrjc6mfvkqzmrg6xdv5h903k9sa4h22g5miwm5254q2zggn",
+    "url": "https://github.com/w0rp/ale"
+  },
   "auto-pairs": {
     "rev": "6afc850e2429e6832a1b093e32a31e0b5eff477d",
     "sha256": "1pbb6lc28lzkisa7mq3dfy0cbr3p3ihkkwphnmza9r0j9r3m8bza",
