@@ -1,0 +1,1 @@
+/home/nadrieril/.dotfiles/nvim/nvim.nix
