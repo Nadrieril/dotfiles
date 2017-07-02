@@ -5,8 +5,8 @@ writeText "zshrc" ''
   export ZSH=${oh-my-zsh}/share/oh-my-zsh
   source $ZSH/oh-my-zsh.sh
 
-  source ${fzf.bin}/share/shell/completion.zsh
-  source ${fzf.bin}/share/shell/key-bindings.zsh
+  source ${fzf.out}/share/shell/completion.zsh
+  source ${fzf.out}/share/shell/key-bindings.zsh
 
   fpath+="${zsh-completions}/share/zsh/site-functions"
   fpath+="${nix-zsh-completions}/share/zsh/site-functions"

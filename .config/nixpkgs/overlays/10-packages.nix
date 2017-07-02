@@ -45,14 +45,6 @@ pkgs: super: {
            move_tab_to_mouse();
            return false;
          }
-      @@ -7083,7 +7083,7 @@ static void set_op_var(int optype)
-           assert(opchar0 >= 0 && opchar0 <= UCHAR_MAX);
-           opchars[0] = (char) opchar0;
-       
-      -    int opchar1 = get_extra_op_char(optype); 
-      +    int opchar1 = get_extra_op_char(optype);
-           assert(opchar1 >= 0 && opchar1 <= UCHAR_MAX);
-           opchars[1] = (char) opchar1;
     '') ];
   });
 }
