@@ -11,6 +11,7 @@ unset GIT_DIR
 
 $DOTFILESDIR/nvim/nvim-plugins.sh $DOTFILESDIR/nvim/nvim-plugins.json
 nix-build $DOTFILESDIR/zsh/conf.nix --out-link $DOTFILESDIR/zsh/result
+nix-env -f '<nixos>' -iA userPackages
 
 tmux source-file ~/.tmux.conf
 

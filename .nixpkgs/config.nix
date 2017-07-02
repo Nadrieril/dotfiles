@@ -15,6 +15,22 @@
   # };
 
   packageOverrides = pkgs: {
+    userPackages = with pkgs; buildEnv {
+      inherit ((import <nixpkgs/nixos> { configuration={}; }).config.system.path)
+        pathsToLink ignoreCollisions postBuild;
+      extraOutputsToInstall = [ "man" ];
+      name = "user-packages";
+
+      paths = [
+        (import ../.dotfiles/nvim/nvim.nix)
+        ag
+        fzf.bin
+        fasd
+        gitAndTools.diff-so-fancy
+        # rxvt_unicode
+      ];
+    };
+
     rxvt_unicode = pkgs.rxvt_unicode.overrideAttrs (_: {
       patches = [ (pkgs.writeText "urxvt.patch" ''
         diff --git a/src/command.C b/src/command.C

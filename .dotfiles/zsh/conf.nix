@@ -1,17 +1,6 @@
 with import <nixpkgs> {};
 
-let userPackages = [
-  ag
-  fzf.bin
-  gitAndTools.diff-so-fancy
-  (import ../nvim/nvim.nix)
-  fasd
-];
-in
-
 writeText "zshrc" ''
-  export PATH="${pkgs.lib.concatMapStrings (pkg: "${pkg}/bin:") userPackages}$PATH"
-
   DISABLE_AUTO_UPDATE="true"
   export ZSH=${oh-my-zsh}/share/oh-my-zsh
   source $ZSH/oh-my-zsh.sh
