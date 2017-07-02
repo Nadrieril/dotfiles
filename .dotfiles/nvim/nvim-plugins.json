@@ -1,7 +1,7 @@
 {
   "ale": {
-    "rev": "11e17669d3836371a2b6c5878a2fce1b74db5fcf",
-    "sha256": "0mnvylrjc6mfvkqzmrg6xdv5h903k9sa4h22g5miwm5254q2zggn",
+    "rev": "b731bd77abca29064600c01ad8df7d7d1033fc7a",
+    "sha256": "1ssfqn37d9if8ykkkfvdv9s04xw777d1a287wbzqggvla0vr9i5r",
     "url": "https://github.com/w0rp/ale"
   },
   "auto-pairs": {
@@ -50,8 +50,8 @@
     "url": "https://github.com/tpope/vim-obsession"
   },
   "vim-rhubarb": {
-    "rev": "f7c4a493e63a62730626d7e5a005c1eadf8e5ffd",
-    "sha256": "18vbh3v8gwbmfmfa7wr2x2ml3cybn5sprhiz4zkq3fd0law0i9h6",
+    "rev": "6caad2b61afcc1b7c476b0ae3dea9ee5f2b1d14a",
+    "sha256": "1bmc5j9056bgdhyhvylbd93jkp1k9067mv3af6skzh0r77rx1a0g",
     "url": "https://github.com/tpope/vim-rhubarb"
   },
   "vim-rsi": {
