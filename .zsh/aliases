@@ -8,6 +8,7 @@ alias findfile='sudo find / -name'
 alias lstar='tar -tvf'
 
 alias getip='wget -qO- http://ipecho.net/plain ; echo'
+alias ip='ip --color'
 alias explore='nautilus "$PWD"'
 alias scu='systemctl --user'
 
@@ -42,3 +43,6 @@ function yq() {
 }
 
 alias findup='find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate'
+alias nixi='nix-env -f "<nixos>" -iA'
+alias nixe='nix-env -e'
+
