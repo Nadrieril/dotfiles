@@ -34,6 +34,11 @@
     "sha256": "09fa156y8pxpzdbngifa7yzg1vjg1fjsgp1h9inj818zbig8mamb",
     "url": "https://github.com/tommcdo/vim-exchange"
   },
+  "vim-hindent": {
+    "rev": "cf77cf214880105a8c7b53fc9d5bc2ed4ee92c9b",
+    "sha256": "074c2dqh1ffwvb3haww082bgw8xp2janbf6qyb7njg835ns6z291",
+    "url": "https://github.com/alx741/vim-hindent"
+  },
   "vim-ledger": {
     "rev": "1c3551b2e9103d771f7c8c4cbe4d54fcde2a60d3",
     "sha256": "08f32cwl90blblbc9w2f6jca66i4hnzbwbx6wnyiw87k3lx9c9dr",
@@ -73,6 +78,11 @@
     "rev": "2c2b23cae19eef5e634fa4a3efdf7081363d65a0",
     "sha256": "0y6pzr4vbmhjw5sqx30z2hqiykinjr6m0fyndyplfw67zf402mhl",
     "url": "https://github.com/t9md/vim-textmanip"
+  },
+  "vim-textobj-haskell": {
+    "rev": "ca656e98ea31e201f5bc543909398a6c8bb5d537",
+    "sha256": "096pjjl3ngw0hsh59j2x6pdrpqvp657rcxfyl9kw13ndqyd867xs",
+    "url": "https://github.com/gibiansky/vim-textobj-haskell"
   },
   "vim-textobj-lastpat": {
     "rev": "686aa837e3aa649b16572d5d55eb2d8c7fc6c78a",

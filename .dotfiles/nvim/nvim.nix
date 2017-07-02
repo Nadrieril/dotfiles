@@ -72,8 +72,8 @@ neovim.override {
             "vimproc"
             # "ghcmod"
             "neco-ghc"
-            # "snipmate"
-            # "vim-snippets"
+            # "vim-hindent"
+            "vim-textobj-haskell"
           ];
         }
 

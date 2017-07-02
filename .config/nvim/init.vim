@@ -197,13 +197,13 @@ function! HighlightText(text)
   return 'let @/="<C-R>='.a:text.'<CR>"\|set hlsearch'
 endfunction
 function! ReplaceFromCursor(text)
-  return ',$s/<C-R>='.a:text.'<CR>//gce\|echo "Continue at beginning of file? (y/q)"\|if getchar()==121\|1,''''-&&\|en'.repeat('<left>',77)
+  return ',$s/<C-R>='.a:text.'<CR>//gce\|echo "Continue at beginning of file? (y/q)"\|if getchar()==121\|1,''''-&&\|en\|:nohls'.repeat('<left>',84)
 endfunction
 
 " vmap / y:execute "/".escape(@",'[]/\.*')<CR>`<
 exe 'nnoremap <silent> * :'.HighlightText('expand("<cword>")').'<CR>'
-exe 'vnoremap <silent> * y:'.HighlightText('MakePattern(@")').'<CR>'
-exe 'vnoremap q* y<ESC>:'.HighlightText('MakePattern(@")').'<CR>:'.ReplaceFromCursor('EscapePattern(@")')
+exe 'vnoremap <silent> * "zy:'.HighlightText('MakePattern(@z)').'<CR>'
+exe 'vnoremap q* "zy<ESC>:'.HighlightText('MakePattern(@z)').'<CR>:'.ReplaceFromCursor('EscapePattern(@")')
 
 "}}}
 
@@ -272,7 +272,7 @@ map <Leader> <Plug>(easymotion-prefix)
 
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline_extensions = ['branch', 'tabline', 'ctrlp', 'obsession', 'neomake']
+let g:airline_extensions = ['branch', 'tabline', 'ctrlp', 'obsession', 'neomake', 'ale']
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
@@ -386,6 +386,10 @@ let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 let g:haskell_enable_quantification = 1   " enable highlighting of `forall`
+" let g:haskell_indent_disable = 1
+
+" vim-hindent
+" let g:hindent_indent_size = 4
 
 " ghc-mod
 map <silent> <leader>ht :GhcModType<CR>
@@ -434,7 +438,9 @@ endfunction
 " Autocmds {{{
 
 " Remove trailing whitespace on write
-autocmd FileType c,cpp,java,php,scala,hs autocmd BufWritePre <buffer> call StripTrailingWhite()
+autocmd FileType c,cpp,java,php,python,scala,haskell autocmd BufWritePre <buffer> call StripTrailingWhite()
+
+autocmd FileType haskell setlocal shiftwidth=4 formatprg=hindent
 
 " }}}
 
