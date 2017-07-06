@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # Spawn a shell in a temp dir and rm it afterwards
 
 TMPSH_DIR="$(mktemp -d -p /tmp)"

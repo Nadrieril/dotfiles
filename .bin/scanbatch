@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 # Wrapper script to ease scanimage batch usage
 DEFAULT_OPTIONS="-d epjitsu --page-height 0"
 FORMAT_STR="out%03d"
