@@ -1,11 +1,16 @@
 pkgs: super: {
   nix = pkgs.stdenv.mkDerivation {
     name = "nix-wrapped";
-    inherit (super.nix) version meta;
+    inherit (super.nix) version;
 
     nativeBuildInputs = [ pkgs.makeWrapper ];
 
     buildCommand = ''
+      mkdir -p $out
+      for item in ${super.nix}/*; do
+        ln -s $item $out/
+      done
+      rm $out/bin
       mkdir -p $out/bin
       for item in ${super.nix}/bin/*; do
         ln -s $item $out/bin/
@@ -13,6 +18,6 @@ pkgs: super: {
       wrapProgram $out/bin/nix-copy-closure --prefix PATH : ${pkgs.openssh}/bin
     '';
 
-    passthru = super.nix;
+    # passthru = super.nix;
   };
 }
