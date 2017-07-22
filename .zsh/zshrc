@@ -63,31 +63,6 @@ bindkey "${terminfo[kcuu1]}" history-beginning-search-backward
 bindkey "${terminfo[kcud1]}" history-beginning-search-forward
 
 
-function mk_prompt {
-    function pwrl_helper() {python3 $HOME/.dotfiles/powerline-helper.py zsh '#' "$1"}
-    function git_prompt_info() {
-      ref=$(git symbolic-ref HEAD 2> /dev/null)
-      if [ $? -eq 0 ]; then
-        pwrl_helper "B240##F250,B238# ${ref#refs/heads/} #"
-      else
-        pwrl_helper "B240##"
-      fi
-    }
-
-    PROMPT=$'\n'
-    PROMPT=$PROMPT$(pwrl_helper '
-      F250,B240# %M #
-      F250,B238# %(!.%{'$fg[red]'%}.)%n #
-      F15,B31,bold# %~ #
-      F250,B240# %* ')
-    PROMPT=$PROMPT'$(git_prompt_info)'
-    PROMPT=$PROMPT$'\n'
-    PROMPT=$PROMPT$(pwrl_helper 'B236#%{%(?:'$fg_bold[green]':'$fg_bold[red]')%} $ #')
-    PROMPT=$PROMPT' '
-
-}
-mk_prompt
-
 source $ZSH_DIR/aliases
 source $ZSH_DIR/proxy
 
