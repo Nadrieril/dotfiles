@@ -29,17 +29,33 @@ unsetopt list_ambiguous
 bindkey -e
 
 zstyle :compinstall filename "$HOME/.zshrc"
-CORRECT_IGNORE='_*'
 
 source ~/.dotfiles/zsh/result
 autoload -Uz compinit && compinit
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-CASE_SENSITIVE="false"
 COMPLETION_WAITING_DOTS="true"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[globbing]='none'
+
+
+## Completion
+zstyle ':completion:*' completer _complete _match _approximate _ignored
+zstyle ':completion:*:approximate:*' max-errors 3 numeric
+
+# Do not complete commands starting with '_'
+zstyle ':completion:*:*:-command-:*:*' ignored-patterns '_*'
+
+# Fuzzy completion
+# 0 -- vanilla completion (abc => abc)
+# 1 -- smart case completion (abc => Abc)
+# 2 -- word flex completion (abc => A-big-Car)
+# 3 -- full flex completion (abc => ABraCadabra)
+zstyle ':completion:*' matcher-list '' \
+  'm:{[:lower:]\-\_}={[:upper:]\_\-}' \
+  'm:{[:lower:]\-\_}={[:upper:]\_\-} r:[^[:alpha:]]||[[:alpha:]]=** r:|=*' \
+  'm:{[:lower:]\-\_}={[:upper:]\_\-} r:|?=**'
 
 
 
