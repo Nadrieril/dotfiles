@@ -1,17 +1,17 @@
 {
   "ale": {
-    "rev": "b731bd77abca29064600c01ad8df7d7d1033fc7a",
-    "sha256": "1ssfqn37d9if8ykkkfvdv9s04xw777d1a287wbzqggvla0vr9i5r",
+    "rev": "e45c16d9bbcf7b9df09ce40ef467b13a49108487",
+    "sha256": "1api51a2l49rl50gqis84hx7bf78wbpcakl3kmvwivxkchc6azzc",
     "url": "https://github.com/w0rp/ale"
   },
   "auto-pairs": {
-    "rev": "6afc850e2429e6832a1b093e32a31e0b5eff477d",
-    "sha256": "1pbb6lc28lzkisa7mq3dfy0cbr3p3ihkkwphnmza9r0j9r3m8bza",
+    "rev": "f0019fc6423e7ce7bbd01d196a7e027077687fda",
+    "sha256": "1kzrdq3adwxwm3fw65g05ww9405lwqi368win5kayamyj9i0z7r6",
     "url": "https://github.com/jiangmiao/auto-pairs"
   },
   "indentline": {
-    "rev": "328162351b608d47ac17675c7313154ef734d6e9",
-    "sha256": "0pbd05l25r95zd7721dvgys22k35aqh43l8w2z55g29kn32c4vrm",
+    "rev": "a97b6d12ae06c2db524e2ceba976f1d4f4637cb7",
+    "sha256": "01wjpp8qkdwkjspnq6ccyj8hrhvidw5cd6fdag9g936wrnm6nv92",
     "url": "https://github.com/yggdroot/indentline"
   },
   "latex-unicoder": {
@@ -25,8 +25,8 @@
     "url": "https://github.com/chrisbra/NrrwRgn"
   },
   "onedark": {
-    "rev": "d94b5df94b5aaa77c4dfb62033991725ffae4001",
-    "sha256": "10qmzgzg4qhh0niirrh32y4ddbsn7rkl4486003hd89s1j5r8iil",
+    "rev": "9a269a54194ce0f978a8d30201d804971635169b",
+    "sha256": "1wypqmzag0l0djyjm2w9i3x6w0ng77kdxyyxrf4arhic6j4hllc3",
     "url": "https://github.com/joshdick/onedark.vim"
   },
   "vim-exchange": {
@@ -35,8 +35,8 @@
     "url": "https://github.com/tommcdo/vim-exchange"
   },
   "vim-hindent": {
-    "rev": "cf77cf214880105a8c7b53fc9d5bc2ed4ee92c9b",
-    "sha256": "074c2dqh1ffwvb3haww082bgw8xp2janbf6qyb7njg835ns6z291",
+    "rev": "f0bac1c8b40c99584c261e9d23c706ed6ab27789",
+    "sha256": "0hlpznciph1zisxixzhwjl6958jcgzlxb5azd8mxqf9snzy00i0p",
     "url": "https://github.com/alx741/vim-hindent"
   },
   "vim-ledger": {
@@ -60,8 +60,8 @@
     "url": "https://github.com/tpope/vim-rsi"
   },
   "vim-rust": {
-    "rev": "b77ac8ecbd4baaa23cca612e1c9b3df5ea23da9b",
-    "sha256": "07qkyils4dgl81lqifx0pr075m3mdpzifp1w5d0zw4zkpvb0v8nk",
+    "rev": "5a6133680ecf9e22eeba35c35e62ea6210225b02",
+    "sha256": "0mxzl8lghq7bnwp8qs3haxq83ds5q8s8br0ajn40a3c3ns2hkhla",
     "url": "https://github.com/rust-lang/rust.vim"
   },
   "vim-stay": {
@@ -105,8 +105,8 @@
     "url": "https://github.com/Julian/vim-textobj-variable-segment"
   },
   "vimpager": {
-    "rev": "0730cb31a462b64f34003d1a9b2cced40a7bb7d6",
-    "sha256": "1zn81pj1ldijhkndkc0alpvnm2plmxlykabznrpl0a2qi4gk1mph",
+    "rev": "6b85e5c8fc7b43e36aa2db491bf500c564c943e8",
+    "sha256": "1y0pg5s0g05d19sis51qalw39h7wrdh24wr4w2nzayrrljk81n4x",
     "url": "http://github.com/rkitover/vimpager"
   }
 }
