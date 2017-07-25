@@ -1,10 +1,7 @@
-#export TERM=screen-256color
 # Auto-tmux
 if [ "$PS1" != "" -a -z "$TMUX" ]; then
-    command -v tmux 2>&1 && ((tmux ls | grep -vq attached && tmux at) || tmux new-session) && exit 0
+    command -v tmux 2>&1 && {{tmux ls | grep -vq attached && tmux at} || tmux new-session} && exit 0
     echo "Tmux failed! continuing with normal startup"
-else
-    [[ -f /var/run/motd.dynamic ]] && cat /var/run/motd.dynamic
 fi
 
 ZSH_DIR=$HOME/.zsh
@@ -15,6 +12,7 @@ umask 027
 HISTFILE=$ZSH_DIR/history
 HISTORY_BASE=$ZSH_DIR/per-dir-history
 ZSH_CACHE_DIR=$ZSH_DIR/cache
+[ ! -d "$ZSH_CACHE_DIR" ] && mkdir -p "$ZSH_CACHE_DIR"
 HIST_STAMPS="yyyy-mm-dd"
 HISTSIZE=100000
 SAVEHIST=100000
@@ -33,32 +31,18 @@ bindkey -e
 zstyle :compinstall filename "$HOME/.zshrc"
 CORRECT_IGNORE='_*'
 
-# fpath=(~/.zsh/completion $fpath)
-# autoload -Uz compinit && compinit -i
-# _comp_options+=(globdots)
-
-# export ZSH_CUSTOM="$HOME/.zsh"
 source ~/.dotfiles/zsh/result
 autoload -Uz compinit && compinit
 
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 CASE_SENSITIVE="false"
-# ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[globbing]='none'
 
 
-# User configuration
-#
-DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-#autoload -U up-line-or-beginning-search down-line-or-beginning-search
-#zle -N up-line-or-beginning-search down-line-or-beginning-search
-#bindkey '^[[A' up-line-or-beginning-search
-#bindkey '^[[B' down-line-or-beginning-search
-
-#autoload zkbd
 bindkey "${terminfo[kcuu1]}" history-beginning-search-backward
 bindkey "${terminfo[kcud1]}" history-beginning-search-forward
 
@@ -66,18 +50,14 @@ bindkey "${terminfo[kcud1]}" history-beginning-search-forward
 source $ZSH_DIR/aliases
 source $ZSH_DIR/proxy
 
-export PATH="$HOME/.bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 export EDITOR="nvim"
 alias v="fasd -fe $EDITOR"
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPTS="--height 40% --reverse"
-# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_COMMAND='(fasd -lfR | grep "^$PWD" | sed "s#^$PWD/##"; ag -g "")'
-# export FZF_CTRL_T_OPTS="+s"
 export FZF_ALT_C_COMMAND="find . -mindepth 1 -path '*/\\.git' -prune -o -type d -print 2> /dev/null | cut -b3-"
-# export FZF_ALT_C_COMMAND="(fasd -ldR; find . -mindepth 1 -path '*/\\.git' -prune -o -type d -print 2> /dev/null | cut -b3-)"
-# export FZF_ALT_C_OPTS="+s"
 _fzf_compgen_path() {
   ag -g "" "$1"
 }
