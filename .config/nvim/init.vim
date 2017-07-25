@@ -18,6 +18,7 @@ set virtualedit=onemore " Allow cursor to move one char past the end of the line
 set autoread " Reload current file if changed on disk but not in buffer
 set mouse=a
 set viewoptions=cursor,folds,slash,unix " Recommended by vim-stay plugin
+set hidden
 
 " Don't eval modelines by default. See Gentoo bugs #14088 and #73715.
 set modelines=0
@@ -261,6 +262,13 @@ imap <F12> <C-O>:UndotreeToggle<CR>
 
 " ctrlpvim/ctrlp
 " let g:ctrlp_map = '<Esc>d'
+let g:ctrlp_mruf_relative = 1
+let g:ctrlp_tabpage_position = 'al'
+let g:ctrlp_working_path_mode = 'w'
+" let g:ctrlp_prompt_mappings = {
+"   \ 'AcceptSelection("e")': ['<c-t>'],
+"   \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+" \ }
 
 " terryma/vim-multiple-cursors
 " let g:multi_cursor_quit_key='<C-E>'
@@ -276,7 +284,7 @@ let g:airline_extensions = ['branch', 'tabline', 'ctrlp', 'obsession', 'neomake'
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#show_close_button = 0
+" let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#obsession#enabled = 1
 
 " rhysd/committia.vim
@@ -433,6 +441,14 @@ function! StripTrailingWhite()
   call winrestview(l:winview)
 endfunction
 
+function! s:openterm() abort
+  let currdir = getcwd()
+  let netrwdir = fnamemodify(b:netrw_curdir, ':t')
+  execute 'lcd '.netrwdir
+  execute 'terminal'
+  execute 'lcd '.currdir
+endfunction
+
 " }}}
 
 " Autocmds {{{
@@ -441,6 +457,9 @@ endfunction
 autocmd FileType c,cpp,java,php,python,scala,haskell autocmd BufWritePre <buffer> call StripTrailingWhite()
 
 autocmd FileType haskell setlocal shiftwidth=4 formatprg=hindent
+
+autocmd BufWritePre /tmp/* setlocal noundofile
+autocmd BufWritePre /dev/shm/* setlocal noundofile
 
 " }}}
 
