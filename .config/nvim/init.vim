@@ -64,7 +64,7 @@ set ffs=unix,dos,mac " Use <NL>-terminated lines by default, then <CR><NL> and f
 set number " Show line numbers
 " set relativenumber " Show relative line numbers
 set numberwidth=3 " When displaying line numbers, don't use an annoyingly wide number column.
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 2 " allows cursor change in tmux
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20 " allows cursor change in terminal
 set list
 set listchars=tab:›─,trail:─,nbsp:␣,extends:»,precedes:«
 set showmatch " Show matching brackets
