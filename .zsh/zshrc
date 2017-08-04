@@ -30,7 +30,7 @@ bindkey -e
 
 zstyle :compinstall filename "$HOME/.zshrc"
 
-source ~/.dotfiles/zsh/result
+source ~/.nix-profile/share/zshrc
 autoload -Uz compinit && compinit
 
 DISABLE_UNTRACKED_FILES_DIRTY="true"
