@@ -54,8 +54,8 @@ let
     export ZSH=${oh-my-zsh}/share/oh-my-zsh
     source $ZSH/oh-my-zsh.sh
 
-    source ${fzf.out}/share/shell/completion.zsh
-    source ${fzf.out}/share/shell/key-bindings.zsh
+    source ${fzf.out}/share/go/src/github.com/junegunn/fzf/shell/completion.zsh
+    source ${fzf.out}/share/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh
 
     fpath+="${zsh-completions}/share/zsh/site-functions"
     fpath+="${nix-zsh-completions}/share/zsh/site-functions"
