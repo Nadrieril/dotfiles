@@ -2,14 +2,14 @@ XTerm*metaSendsEscape: true
 xterm*termName: xterm-256color
 XTerm*locale: true
 XTerm*reverseVideo: on
-; xterm*faceName: DejaVu Sans Mono:size=22:antialias=false
+/* xterm*faceName: DejaVu Sans Mono:size=22:antialias=false */
 xterm*borderWidth: 0
-; XTerm*faceName: xft:Inconsolata for Powerline:pixelsize=30
-; URxvt.font: xft:Inconsolata for Powerline:pixelsize=30
-; URxvt.font: xft:Fantasque Sans Mono:pixelsize=28
-URxvt.font: xft:Fantasque Sans Mono
-; Xft.dpi: 192
-; URxvt*reverseVideo: true
+/* XTerm*faceName: xft:Inconsolata for Powerline:pixelsize=30 */
+URxvt.font: xft:Inconsolata for Powerline
+/* URxvt.font: xft:Fantasque Sans Mono:pixelsize=28 */
+/* URxvt.font: xft:Fantasque Sans Mono */
+/* Xft.dpi: 192 */
+/* URxvt*reverseVideo: true */
 URxvt.keysym.Home: \033[1~
 URxvt.keysym.End: \033[4~
 URxvt.keysym.Control-Tab: \033[27;5;9~
@@ -21,7 +21,7 @@ URxvt.iso14755:  false
 URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
-; URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-\[\]]*[\\w/-]
+/* URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-\[\]]*[\\w/-] */
 urxvt*dynamicColors: on
 
 
