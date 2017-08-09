@@ -14,7 +14,7 @@ set ignorecase smartcase " case insensitive search if all lowercase
 set breakindent
 set fixendofline " Ensure file ends with new line
 set nojoinspaces
-set virtualedit=onemore " Allow cursor to move one char past the end of the line
+" set virtualedit=onemore " Allow cursor to move one char past the end of the line
 set autoread " Reload current file if changed on disk but not in buffer
 set mouse=a
 set viewoptions=cursor,folds,slash,unix " Recommended by vim-stay plugin
@@ -63,7 +63,7 @@ set scrolloff=6 " Always show at least n lines above and below the cursor
 set sidescrolloff=5 " Always show at least 5 columns at cursor sides in nowrap mode
 set ffs=unix,dos,mac " Use <NL>-terminated lines by default, then <CR><NL> and finally <CR>
 set number " Show line numbers
-" set relativenumber " Show relative line numbers
+set relativenumber " Show relative line numbers
 set numberwidth=3 " When displaying line numbers, don't use an annoyingly wide number column.
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20 " allows cursor change in terminal
 set list
@@ -112,14 +112,14 @@ let g:airline_theme='onedark'
 
 " General {{{
 " Make $ move to the end of the line when virtualedit=onemore
-noremap $ g$
-noremap £ $
+" noremap $ g$
+" noremap £ $
 
 " Leave the cursor in place when exiting Insert mode
-inoremap <ESC> <C-O>mz<ESC>`z
+" inoremap <ESC> <C-O>mz<ESC>`z
 
 " Backspace deletes as expected
-map <BS> "_X
+map <BS> "_x
 
 
 " easier move screen up/down
@@ -137,10 +137,10 @@ noremap <Right> <nop>
 " vnoremap <SPACE> zf
 
 " Undo in insertion mode
-imap <C-U> <Esc>ui
+" imap <C-U> <Esc>ui
 
 " (un)comment in insert mode
-imap <C-_> <C-o>gcc<C-o>$
+" imap <C-_> <C-o>gcc<C-o>$
 
 " Easier save
 imap <C-S> <Esc>:w<CR>
@@ -166,14 +166,6 @@ nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR
 " vnoremap <S-Tab> <gv
 vnoremap > >gv
 vnoremap < <gv
-
-" Move lines up/down
-nnoremap <M-j> :m.+1<CR>==
-nnoremap <M-k> :m.-2<CR>==
-inoremap <M-j> <Esc>:m.+1<CR>==gi
-inoremap <M-k> <Esc>:m.-2<CR>==gi
-" vnoremap <M-j> :m'>+1<CR>gv=gv
-" vnoremap <M-k> :m'<-2<CR>gv=gv
 
 " " use arrow keys to swap between split windows
 " nmap <left> <C-W>h
@@ -333,15 +325,21 @@ set completeopt=menuone,preview,longest
 
 imap <expr><TAB>
       \ neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" :
-      \ pumvisible() ? "\<Down>" :
+      \ pumvisible() ? "\<c-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ deoplete#mappings#manual_complete()
-imap <expr><S-TAB> pumvisible() ? "\<Up>" : "\<S-TAB>"
+imap <expr><S-TAB> pumvisible() ? "\<c-p>" : "\<S-TAB>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"
+
+" Workaround to really insert newline on <Enter>
+inoremap <silent> <CR> <C-r>=<SID>really_newline()<CR>
+function! s:really_newline() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
 
 
 " supertab
@@ -381,6 +379,8 @@ vmap <leader>D <Plug>(textmanip-duplicate-up)
 vmap <leader>Dl <Plug>(textmanip-duplicate-right)
 vmap <leader>Dh <Plug>(textmanip-duplicate-left)
 
+imap <M-j> <C-o><Plug>(textmanip-move-down)
+imap <M-k> <C-o><Plug>(textmanip-move-up)
 nmap <M-j> <Plug>(textmanip-move-down)
 nmap <M-k> <Plug>(textmanip-move-up)
 vmap <M-j> <Plug>(textmanip-move-down)
@@ -449,12 +449,23 @@ function! s:openterm() abort
   execute 'lcd '.currdir
 endfunction
 
+function MarkdownLevel()
+  let h = matchstr(getline(v:lnum), '^#\+')
+  if empty(h)
+    return "="
+  else
+    return ">" . len(h)
+  endif
+endfunction
 " }}}
 
 " Autocmds {{{
 
 " Remove trailing whitespace on write
 autocmd FileType c,cpp,java,php,python,scala,haskell autocmd BufWritePre <buffer> call StripTrailingWhite()
+
+au BufEnter *.md setlocal foldexpr=MarkdownLevel()
+au BufEnter *.md setlocal foldmethod=expr
 
 autocmd FileType haskell setlocal shiftwidth=4 formatprg=hindent
 
