@@ -1,7 +1,7 @@
 pkgs: super: {
   nix = pkgs.stdenv.mkDerivation {
     name = "nix-wrapped";
-    inherit (super.nix) version;
+    inherit (super.nix) version dev;
 
     nativeBuildInputs = [ pkgs.makeWrapper ];
 
@@ -19,5 +19,8 @@ pkgs: super: {
     '';
 
     # passthru = super.nix;
+    meta = {
+      inherit (super.nix.meta) platforms;
+    };
   };
 }
