@@ -1,4 +1,4 @@
-pkgs: super: {
+pkgs: super: rec {
 #   python27 = super.python27.override { packageOverrides = self: super: {
 #     taskcoach = super.taskcoach.override rec {
 #       name = "TaskCoach-1.4.3";
@@ -47,4 +47,35 @@ pkgs: super: {
          }
     '') ];
   });
+
+  shutilwhich = pkgs.python3Packages.buildPythonPackage {
+    name = "shutilwhich-1.1.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "mbr";
+      repo = "shutilwhich";
+      rev = "1.1.0";
+      sha256 = "05fwcjn86w8wprck04iv1zccfi39skdf0lhwpb4b9gpvklyc9mj0";
+    };
+  };
+
+  panflute = pkgs.python3Packages.buildPythonPackage {
+    name = "panflute-9dd160a";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "sergiocorreia";
+      repo = "panflute";
+      rev = "9dd160ac27e0124ffa4c110aaec3035803dbcc84";
+      sha256 = "16vry11x5ckc3i56jn16j4na4mm14a2p6s3ab1j41rbssi6y2dxj";
+    };
+
+    buildInputs = [ pkgs.pandoc pkgs.python3Packages.pandocfilters ];
+
+    propagatedBuildInputs = with pkgs.python3Packages; [ pyyaml future shutilwhich ];
+
+    meta = {
+      homepage = http://scorreia.com/software/panflute;
+      description = "An Pythonic alternative to John MacFarlane's pandocfilters, with extra helper functions";
+    };
+  };
 }
