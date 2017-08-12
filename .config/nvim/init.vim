@@ -119,7 +119,7 @@ let g:airline_theme='onedark'
 " inoremap <ESC> <C-O>mz<ESC>`z
 
 " Backspace deletes as expected
-map <BS> "_x
+map <BS> "_X
 
 
 " easier move screen up/down
@@ -451,10 +451,14 @@ endfunction
 
 function MarkdownLevel()
   let h = matchstr(getline(v:lnum), '^#\+')
-  if empty(h)
-    return "="
-  else
+  if ! empty(h)
     return ">" . len(h)
+  elseif ! empty(matchstr(getline(v:lnum), '^<div'))
+    return "a1"
+  elseif ! empty(matchstr(getline(v:lnum), '^</div'))
+    return "s1"
+  else
+    return "="
   endif
 endfunction
 " }}}

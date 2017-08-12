@@ -17,7 +17,11 @@ buildEnv {
     fzf.bin
     fasd
     gitAndTools.diff-so-fancy
-    # rxvt_unicode
+    gitAndTools.git-extras
+    gnupg
+    pass
+    xclip
+    rxvt_unicode
   ];
 }
 
