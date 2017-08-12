@@ -1,7 +1,8 @@
 pkgs:
 with pkgs;
 
-let defaultEnvParams = (import <nixpkgs/nixos> { configuration={}; }).config.system.path;
+let
+  defaultEnvParams = (import <nixpkgs/nixos> { configuration={}; }).config.system.path;
 
 in
 buildEnv {
@@ -22,6 +23,7 @@ buildEnv {
     pass
     xclip
     rxvt_unicode
+    beep
   ];
 }
 

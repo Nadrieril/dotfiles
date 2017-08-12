@@ -12,6 +12,11 @@ pkgs: super: rec {
 #     };
 #   };};
 
+  beep = pkgs.writeScriptBin "beep" ''
+    #!${pkgs.bash}/bin/bash
+    ${pkgs.pulseaudioLight}/bin/paplay ${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/dialog-warning.oga
+  '';
+
   rxvt_unicode = super.rxvt_unicode.overrideAttrs (_: {
     patches = [ (pkgs.writeText "urxvt.patch" ''
       diff --git a/src/command.C b/src/command.C
