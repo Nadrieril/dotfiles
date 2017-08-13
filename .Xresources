@@ -19,7 +19,7 @@ URxvt.keysym.Control-ISO_Left_Tab: \033[27;6;9~
 URxvt*scrollBar: false
 URxvt.iso14755:  false
 URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.url-launcher: /run/current-system/sw/bin/xdg-open
 URxvt.matcher.button: 1
 /* URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-\[\]]*[\\w/-] */
 urxvt*dynamicColors: on
