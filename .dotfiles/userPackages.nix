@@ -20,6 +20,7 @@ let
     spaceFM
     xcape
     mosh
+    vlc
   ];
 
 in
@@ -35,6 +36,7 @@ buildEnv {
     ag
     fzf.bin
     fasd
+    git
     gitAndTools.diff-so-fancy
     gitAndTools.git-extras
     gnupg
