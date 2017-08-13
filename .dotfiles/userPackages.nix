@@ -24,6 +24,7 @@ buildEnv {
     xclip
     rxvt_unicode
     beep
+    i3status
   ];
 }
 
