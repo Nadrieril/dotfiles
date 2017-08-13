@@ -69,6 +69,7 @@ source $ZSH_DIR/proxy
 
 export PATH="$HOME/.bin:$PATH"
 export EDITOR="nvim"
+export HOST
 alias v="fasd -fe $EDITOR"
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
