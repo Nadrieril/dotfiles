@@ -257,10 +257,10 @@ imap <F12> <C-O>:UndotreeToggle<CR>
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_tabpage_position = 'al'
 let g:ctrlp_working_path_mode = 'w'
-" let g:ctrlp_prompt_mappings = {
-"   \ 'AcceptSelection("e")': ['<c-t>'],
-"   \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-" \ }
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': ['<c-t>'],
+  \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+\ }
 
 " terryma/vim-multiple-cursors
 " let g:multi_cursor_quit_key='<C-E>'
