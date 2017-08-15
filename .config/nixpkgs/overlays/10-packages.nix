@@ -115,4 +115,52 @@ pkgs: super: rec {
       mv nheqminer_cpu $out/bin/
     '';
   };
+
+  latexrun = pkgs.pythonPackages.buildPythonPackage {
+    name = "latexrun";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "aclements";
+      repo = "latexrun";
+      rev = "38ff6ec2815654513c91f64bdf2a5760c85da26e";
+      sha256 = "0xdl94kn0dbp6r7jk82cwxybglm9wp5qwrjqjxmvadrqix11a48w";
+    };
+
+    buildInputs = with pkgs; [
+      python3
+      (texlive.combine {
+        inherit (texlive) scheme-small biblatex logreq xstring bibtex;
+      })
+      biber
+    ];
+
+    dontBuild = true;
+
+    patches = [(pkgs.writeText "latexrun.patch" ''
+      diff --git a/test/run b/test/run
+      index 4b553d6..6b56bda 100755
+      --- a/test/run
+      +++ b/test/run
+      @@ -72,7 +72,7 @@ def test(latexrun_path, latexrun_args, input_path):
+           m = re.search(pre + 'bibtex-cmd: (.*)', input_src, re.I|re.M)
+           if m:
+               bibtex_cmd = m.group(1)
+      -        latexrun_args += ["--bibtex-cmd",  bibtex_cmd]
+      +        latexrun_args = latexrun_args + ["--bibtex-cmd",  bibtex_cmd]
+       
+           m = re.search(pre + 'output:\n((?:' + pre + '.*\n)*)', input_src, re.I|re.M)
+           if m:
+      '')];
+
+    checkPhase = ''
+      cd test
+      rm -r T-biblatex-bibtex  # fails because of a biblatex warning
+      ./runall
+    '';
+
+    installPhase = ''
+      mkdir -p $out/bin
+      cp latexrun $out/bin/
+    '';
+  };
 }
