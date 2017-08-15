@@ -83,4 +83,36 @@ pkgs: super: rec {
       description = "An Pythonic alternative to John MacFarlane's pandocfilters, with extra helper functions";
     };
   };
+
+  nheqminer_cpu = pkgs.stdenv.mkDerivation {
+    name = "nheqminer_cpu";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "nicehash";
+      repo = "nheqminer";
+      rev = "eb37570583ec639b4270e08b429ceb9bc6fe3077";
+      sha256 = "0825kspi1fjr5w4rpp7ay8fcsi7idl8abrgf2l51q6jwxippw49y";
+    };
+
+    buildInputs = with pkgs; [
+      boost
+      cmake
+    ];
+
+    dontUseCmakeConfigure = true;
+
+    buildPhase = ''
+      cd cpu_xenoncat/Linux/asm/
+      sh assemble.sh
+
+      cd ../../../Linux_cmake/nheqminer_cpu
+      cmake .
+      make -j 8
+    '';
+
+    installPhase = ''
+      mkdir -p $out/bin
+      mv nheqminer_cpu $out/bin/
+    '';
+  };
 }
