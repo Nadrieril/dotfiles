@@ -76,6 +76,8 @@
     diffFilter = diff-so-fancy --patch
 [gpg]
     program = gpg2
+[annex]
+    autocommit = false
 [color]
     ui = true
 [color "diff-highlight"]
