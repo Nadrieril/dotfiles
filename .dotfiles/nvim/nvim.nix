@@ -65,6 +65,7 @@ pkgs: super: {
           { ft_regex = "^scala\$"; name = "vim-scala"; }
           { ft_regex = "^ledger\$"; name = "vim-ledger"; }
           { ft_regex = "^rust\$"; name = "vim-rust"; }
+          { ft_regex = "^idris\$"; name = "idris-vim"; }
           { ft_regex = "^haskell\$";
             names = [
               "haskell-vim"
@@ -96,6 +97,7 @@ pkgs: super: {
 
         au BufRead,BufNewFile *.nix set filetype=nix
         au BufRead,BufNewFile *.j set filetype=ledger
+        au BufRead,BufNewFile *.idr set filetype=idris
       '';
     };
   };
