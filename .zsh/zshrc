@@ -86,3 +86,5 @@ function zz() {
   DIR="$(fasd -ldR | fzf)" && cd $DIR
 }
 
+export PASSWORD_STORE_ENABLE_EXTENSIONS="true"
+
