@@ -12,13 +12,12 @@ alias ip='ip --color'
 alias explore='nautilus "$PWD"'
 alias scu='systemctl --user'
 
-#alias n='nano -m -w'
 alias n='nvim'
-alias v='nvim'
+alias sn='sudo -e'
+alias sno='sudo -e'
 # alias n='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 alias nvrt='nvr --remote-tab-silent'
-alias e='editor'
-alias gdiff='git --no-pager diff --no-index --'
+alias gdiff='git diff --no-index --'
 alias tm='timew'
 
 
