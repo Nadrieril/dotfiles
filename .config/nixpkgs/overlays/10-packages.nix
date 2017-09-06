@@ -163,4 +163,11 @@ pkgs: super: rec {
       cp latexrun $out/bin/
     '';
   };
+
+  tor-browser-bundle-bin = super.tor-browser-bundle-bin.override {
+    extraPrefs = ''
+      lockPref("browser.tabs.remote.autostart", false);
+      lockPref("browser.tabs.remote.autostart.2", false);
+    '';
+  };
 }
