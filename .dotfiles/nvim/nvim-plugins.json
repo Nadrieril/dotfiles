@@ -1,7 +1,7 @@
 {
   "ale": {
-    "rev": "e45c16d9bbcf7b9df09ce40ef467b13a49108487",
-    "sha256": "1api51a2l49rl50gqis84hx7bf78wbpcakl3kmvwivxkchc6azzc",
+    "rev": "a170cc806aa82a1a087911545e4ff5b71d1b777b",
+    "sha256": "01iw9f4ml2c37g1m61hqj23ap4f5y5vz28f0fj5pkmvf4ac5rnr5",
     "url": "https://github.com/w0rp/ale"
   },
   "auto-pairs": {
@@ -20,13 +20,13 @@
     "url": "https://github.com/joom/latex-unicoder.vim"
   },
   "nrrwrgn": {
-    "rev": "92ba05e7d2c485c7985dcb69979cf8f24b214a8a",
-    "sha256": "1hc7ahf2cqrz34kbvbvyssiqga8vi4b4mnczsa67a9srrq58ldla",
+    "rev": "835c982f16e50c4fa1c7678af188ae35375fd912",
+    "sha256": "1bin0j3rxgv394pggh5cqbh40n7p9ihmkyk9wgddd42ylb1ix95c",
     "url": "https://github.com/chrisbra/NrrwRgn"
   },
   "onedark": {
-    "rev": "9a269a54194ce0f978a8d30201d804971635169b",
-    "sha256": "1wypqmzag0l0djyjm2w9i3x6w0ng77kdxyyxrf4arhic6j4hllc3",
+    "rev": "1552d3e8ec7a25aa72bd0dfa5a8344d9c132a7c5",
+    "sha256": "1nldw7xggcdv2v6mmlqjwmfg40nlmh30hv2677vl77qsnvfnmm44",
     "url": "https://github.com/joshdick/onedark.vim"
   },
   "vim-exchange": {
@@ -60,8 +60,8 @@
     "url": "https://github.com/tpope/vim-rsi"
   },
   "vim-rust": {
-    "rev": "5a6133680ecf9e22eeba35c35e62ea6210225b02",
-    "sha256": "0mxzl8lghq7bnwp8qs3haxq83ds5q8s8br0ajn40a3c3ns2hkhla",
+    "rev": "a54bc38126913dc32f69f5355992fa8fe7925b00",
+    "sha256": "05mli3w6ld11sqwa33a38v1d7qa6s35kgq6cp9wkam40h0k4rq98",
     "url": "https://github.com/rust-lang/rust.vim"
   },
   "vim-stay": {
@@ -95,8 +95,8 @@
     "url": "https://github.com/sgur/vim-textobj-parameter"
   },
   "vim-textobj-user": {
-    "rev": "a3054162c09bcf732624f43ddacbd85dad09713b",
-    "sha256": "13ip7c611ghn1z4q711kd19mr6a71pxiyqj72xyvw40hslbw3n50",
+    "rev": "8e885f94c1a3b5204e75bb8b80077723a8a18467",
+    "sha256": "0xg1w03k8x9iqyzgpi6g5ggbyw4dmvbl5ikqhg2xwzb6ykfpssp7",
     "url": "https://github.com/kana/vim-textobj-user"
   },
   "vim-textobj-variable-segment": {
@@ -105,8 +105,8 @@
     "url": "https://github.com/Julian/vim-textobj-variable-segment"
   },
   "vimpager": {
-    "rev": "6b85e5c8fc7b43e36aa2db491bf500c564c943e8",
-    "sha256": "1y0pg5s0g05d19sis51qalw39h7wrdh24wr4w2nzayrrljk81n4x",
+    "rev": "4f1a077a9a5646eeb2ccbc64640b96ad1fbd8fcd",
+    "sha256": "1dlnwpx3q5vsfpb2w3xbj7gdlmdjlw4h3byjnyw9hrz7769mnbzd",
     "url": "http://github.com/rkitover/vimpager"
   }
 }
