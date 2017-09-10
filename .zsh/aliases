@@ -28,6 +28,15 @@ function vlcyt() {
   URL="$(yturl "$1")" || return
   vlc "$URL"
 }
+function llnk() {
+    (
+        cd "$(dirname $1)"
+        l "$(readlink $1)"
+    )
+}
+function lwhich() {
+    l "$(which $1)"
+}
 
 function ymltojson() {
   python -c 'import sys,yaml,json; print(json.dumps(yaml.load(sys.stdin)))'
