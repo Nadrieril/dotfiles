@@ -37,6 +37,9 @@ function llnk() {
 function lwhich() {
     l "$(which $1)"
 }
+function tgz() {
+    tar caf "$1.tar.gz" "$1"
+}
 
 function ymltojson() {
   python -c 'import sys,yaml,json; print(json.dumps(yaml.load(sys.stdin)))'
