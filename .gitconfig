@@ -66,7 +66,8 @@
 
     alias = config --get-regexp ^alias\\.
     confg = config --global
-    l  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an [%G?]>%Creset' --abbrev-commit
+    l  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+    ls  = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an [%G?]>%Creset' --abbrev-commit
     la = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an [%G?]>%Creset' --abbrev-commit --all
 [pager]
     diff = diff-so-fancy | less --tabs=4 -RFX
