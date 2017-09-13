@@ -32,6 +32,7 @@ buildEnv {
 
   paths = [
     (import ./zshrc.nix)
+    (import ./tmux-sensible.nix)
     neovim_configured
     ag
     fzf.bin
