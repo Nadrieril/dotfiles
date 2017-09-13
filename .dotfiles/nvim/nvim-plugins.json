@@ -1,7 +1,7 @@
 {
   "ale": {
-    "rev": "a170cc806aa82a1a087911545e4ff5b71d1b777b",
-    "sha256": "01iw9f4ml2c37g1m61hqj23ap4f5y5vz28f0fj5pkmvf4ac5rnr5",
+    "rev": "91df9ba2c0ccbe53e7838d16642e00c6280eefaa",
+    "sha256": "1rj15g7v1hpckhpwa0skr5prsi17gk19ghssqj2l8pyb7bqpsgnw",
     "url": "https://github.com/w0rp/ale"
   },
   "auto-pairs": {
@@ -15,8 +15,8 @@
     "url": "https://github.com/yggdroot/indentline"
   },
   "latex-unicoder": {
-    "rev": "2a6feec9f6dafa8079de3c040c7133e16719e444",
-    "sha256": "01wkg4m0x47gshhgdhvm1wkm0j8m13kldn8k9hr2jhvphps3f2vy",
+    "rev": "cee442ad2ccef8cbb0598f3db2c7445d213f26e2",
+    "sha256": "1n6idrljfp33373hwyb3n7bw7v9243sbdm4p9fjzw0b8yzdz48ff",
     "url": "https://github.com/joom/latex-unicoder.vim"
   },
   "nrrwrgn": {
@@ -35,8 +35,8 @@
     "url": "https://github.com/tommcdo/vim-exchange"
   },
   "vim-hindent": {
-    "rev": "f0bac1c8b40c99584c261e9d23c706ed6ab27789",
-    "sha256": "0hlpznciph1zisxixzhwjl6958jcgzlxb5azd8mxqf9snzy00i0p",
+    "rev": "8e1bfa7f5adfdd438c6be6843443cdc2015219e8",
+    "sha256": "0pxrbbal3d5108rscs62z3akqakxzxf9p4fvxj5c19ih1rwn5b28",
     "url": "https://github.com/alx741/vim-hindent"
   },
   "vim-ledger": {
