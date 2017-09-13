@@ -1,2 +1,0 @@
-alias ap0='sudo ap-hotspot stop'
-alias ap1='sudo ap-hotspot start'

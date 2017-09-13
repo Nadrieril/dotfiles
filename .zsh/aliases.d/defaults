@@ -1,9 +1,0 @@
-alias l='ls -lah'
-alias rsync='rsync --partial --progress'
-alias df='df -h'
-alias du='du -h'
-alias tmuxinator='nocorrect tmuxinator'
-alias xo='xdg-open'
-function ljq() {jq -C $@ | less -r}
-alias free='free -h'
-alias xclip='xclip -selection clipboard'

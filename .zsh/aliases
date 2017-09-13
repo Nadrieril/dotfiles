@@ -1,7 +1,3 @@
-for d in $HOME/.zsh/aliases.d/*; do
-    source $d;
-done
-
 function hist() { grep -R $@ $HOME/.zsh/per-dir-history }
 alias mine='sudo chown -R $USER:$GID'
 alias findf='find -type f -name'
@@ -55,3 +51,73 @@ alias findup='find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xar
 alias nixi='nix-env -f "<nixos>" -iA'
 alias nixe='nix-env -e'
 
+alias ap0='sudo ap-hotspot stop'
+alias ap1='sudo ap-hotspot start'
+alias agi='sudo apt install'
+alias agr='sudo apt remove'
+alias agar='sudo apt-get autoremove'
+alias agu='sudo apt update'
+alias agug='sudo apt upgrade'
+alias agdu='sudo apt dist-upgrade'
+alias ags='apt search'
+alias l='ls -lah'
+alias rsync='rsync --partial --progress'
+alias df='df -h'
+alias du='du -h'
+alias tmuxinator='nocorrect tmuxinator'
+alias xo='xdg-open'
+function ljq() {jq -C $@ | less -r}
+alias free='free -h'
+alias xclip='xclip -selection clipboard'
+alias dk='docker'
+alias docker-ip='docker inspect --format '"'"'{{.NetworkSettings.IPAddress}}'"'"''
+alias docker-clean='docker rmi $(docker images -q --filter "dangling=true")'
+alias dk-clean='docker-clean'
+alias dcs='docker-compose-systemd.py'
+
+alias fig='echo "use docker-compose"'
+alias dc='docker-compose'
+function dcex() {docker exec -ti $(docker-compose ps -q $1) ${@:2}}
+PACMAN_CMD="pacman --color=auto"
+
+alias pac="sudo $PACMAN_CMD --needed -S"  # install
+alias auraa="sudo aura -Aax"
+
+alias pacu="sudo $PACMAN_CMD -Syu"  # update
+alias aurau="sudo aura -Akuax"
+
+alias pacr="sudo $PACMAN_CMD -Rs"  # remove
+# alias aurau="sudo aura -R"
+
+alias pacs="$PACMAN_CMD -Ss"  # search
+alias auras="aura -As"
+
+alias paci="$PACMAN_CMD -Si"  # info
+alias aurai="aura -Ai"
+alias aurap="aura -Ap"
+alias aurad="aura -Ad"
+
+alias paclo="$PACMAN_CMD -Qdt"  # list orphans
+alias auralo="aura -O"
+
+alias pacro="sudo $PACMAN_CMD -Rns "'$(pacman -Qtdq)'  # remove orphans
+alias auraro="sudo aura -Oj"
+
+alias pacc="sudo $PACMAN_CMD -Scc"  # clean cache
+alias aurac="sudo aura aura -Ccc"
+
+alias paclf="$PACMAN_CMD -Ql"  # list files
+alias pacl="$PACMAN_CMD -Qet"  # list manually installed packages
+alias pacll="$PACMAN_CMD -Qdt"  # list installed packages
+alias ssu='sudo -s'
+alias s='sudo '
+# alias sno='sudo nano'
+alias sno='sudo nvim'
+alias sv='sudo nvim'
+alias sc='sudo systemctl'
+function pms() {
+  sudo ap-hotspot stop
+  sudo pm-suspend
+  sudo service network-manager restart
+}
+alias pmh='sudo pm-hibernate'
