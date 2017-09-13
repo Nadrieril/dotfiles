@@ -72,7 +72,6 @@ bindkey "${terminfo[kcud1]}" history-beginning-search-forward
 
 
 source $ZSH_DIR/aliases
-source $ZSH_DIR/proxy
 
 export PATH="$HOME/.bin:$PATH"
 export EDITOR="nvim"
