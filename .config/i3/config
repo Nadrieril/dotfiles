@@ -137,6 +137,9 @@ bindsym $mod+Tab workspace back_and_forth
 
 exec_always --no-startup-id "xcape -e '#66=Escape'"
 
+assign [title="^pdfpc"] pdfpc
+# workspace pdfpc output HDMI1
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
