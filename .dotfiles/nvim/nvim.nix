@@ -32,7 +32,7 @@ pkgs: super: {
               ## Help edition
               "auto-pairs"
               "commentary"
-              "latex-unicoder"
+              # "latex-unicoder"
               "nrrwrgn" # Narrow region - zoom editing
               "surround"
               "undotree"
