@@ -1,0 +1,2 @@
+#!/use/bin/env bash
+pass get selfhosting/fde/$1 | ssh $1_unlock
