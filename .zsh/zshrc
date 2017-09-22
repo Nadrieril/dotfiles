@@ -28,8 +28,6 @@ setopt NO_HUP
 unsetopt list_ambiguous
 bindkey -e
 
-zstyle :compinstall filename "$HOME/.zshrc"
-
 source ~/.nix-profile/share/zshrc
 
 
