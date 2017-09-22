@@ -15,8 +15,6 @@
 [rebase]
     autosquash = true
     autostash = true
-[diff]
-    indentHeuristic = true
 
 [url "git@rubion:"]
    insteadOf = rubion:
