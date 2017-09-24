@@ -170,4 +170,17 @@ pkgs: super: rec {
       lockPref("browser.tabs.remote.autostart.2", false);
     '';
   };
+
+  git-annex-utils = pkgs.stdenv.mkDerivation {
+    name = "git-annex-utils";
+
+    src = pkgs.fetchurl {
+      url = "http://git-annex.mysteryvortex.com/files/releases/git-annex-utils-latest.tar.bz2";
+      sha256 = "6d01a133b0bc9fef79009977aa5142ad85cacf7b57cdd8503c63cde21c1ed0e2";
+    };
+
+    buildInputs = with pkgs; [
+      gmp
+    ];
+  };
 }
