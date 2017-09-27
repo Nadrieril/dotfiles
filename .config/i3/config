@@ -141,6 +141,7 @@ exec --no-startup-id "xcape -e '#66=Escape'"
 exec --no-startup-id "usbguard-applet-qt"
 
 for_window [class="^usbguard-applet-qt$"] floating enable
+for_window [class="^Pinentry$"] floating enable
 
 
 assign [title="^pdfpc"] pdfpc
