@@ -135,7 +135,7 @@ bindsym $mod+F11 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 bindsym $mod+Tab workspace back_and_forth
 
-bindsym Ctrl+Mod1+l exec i3lock -c 000000
+bindsym Ctrl+Mod1+l exec i3lock -c 000011
 
 exec --no-startup-id "xcape -e '#66=Escape'"
 exec --no-startup-id "usbguard-applet-qt"
