@@ -21,6 +21,7 @@ let
     xcape
     mosh
     vlc
+    beep
   ];
 
 in
@@ -42,7 +43,6 @@ buildEnv {
     gitAndTools.git-extras
     gnupg
     pass
-    beep
     jq
     tmux
   ] ++ lib.optionals is_desktop desktop_packages;
