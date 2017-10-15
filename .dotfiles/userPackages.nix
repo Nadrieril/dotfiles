@@ -21,6 +21,7 @@ let
     xcape
     mosh
     vlc
+    pass
     beep
     pythonPackages.py3status
   ];
@@ -42,10 +43,17 @@ buildEnv {
     git
     gitAndTools.diff-so-fancy
     gitAndTools.git-extras
+    tig
+    colordiff
     gnupg
-    pass
     jq
     tmux
+    dos2unix
+    gnumake
+    ncdu
+    tree
+    nmap
+    traceroute
   ] ++ lib.optionals is_desktop desktop_packages;
 }
 
