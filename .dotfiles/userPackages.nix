@@ -22,6 +22,7 @@ let
     mosh
     vlc
     beep
+    pythonPackages.py3status
   ];
 
 in
