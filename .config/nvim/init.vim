@@ -47,7 +47,7 @@ endif
 
 " Configure completion
 set wildmode=longest:full,full
-set wildignore+=*~,*.bak,*.o,*.pyc,*.pyo,*.swo,*.swp
+set wildignore+=*~,*.bak,*.o,*.pyc,*.pyo,*.swo,*.swp,*.class
 set wildignore+=*.dll,*.exe,*.so,*.swf,*.zip,*.tar
 set wildignore+=*/.git/*,*/.hq/*,*/.svn/*
 set wildignorecase

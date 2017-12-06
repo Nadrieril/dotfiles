@@ -67,6 +67,7 @@ pkgs: super: {
           { ft_regex = "^ledger\$"; name = "vim-ledger"; }
           { ft_regex = "^rust\$"; name = "vim-rust"; }
           { ft_regex = "^idris\$"; name = "idris-vim"; }
+          { ft_regex = "^java\$"; name = "javacomplete"; }
           { ft_regex = "^haskell\$";
             names = [
               "haskell-vim"

@@ -14,6 +14,11 @@
     "sha256": "01wjpp8qkdwkjspnq6ccyj8hrhvidw5cd6fdag9g936wrnm6nv92",
     "url": "https://github.com/yggdroot/indentline"
   },
+  "javacomplete": {
+    "rev": "f3d9ce93b4452baf5cb15b68d3b2a925a10a6e7d",
+    "sha256": "0qr4y2pq99rnfx05xvlnqxpsb4yhl7mw1fk8fz76ccjfqf28ss65",
+    "url": "https://github.com/vim-scripts/javacomplete"
+  },
   "latex-unicoder": {
     "rev": "cee442ad2ccef8cbb0598f3db2c7445d213f26e2",
     "sha256": "1n6idrljfp33373hwyb3n7bw7v9243sbdm4p9fjzw0b8yzdz48ff",
