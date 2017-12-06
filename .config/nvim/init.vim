@@ -19,6 +19,8 @@ set autoread " Reload current file if changed on disk but not in buffer
 set mouse=a
 set viewoptions=cursor,folds,slash,unix " Recommended by vim-stay plugin
 set hidden
+set tags="/home/nadrieril/.local/share/nvim/tags"
+let g:easytags_file="/home/nadrieril/.local/share/nvim/tags"
 
 " Don't eval modelines by default. See Gentoo bugs #14088 and #73715.
 set modelines=0

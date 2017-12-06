@@ -58,6 +58,7 @@ pkgs: super: {
               "vim-obsession" # Ease session saving
               "vim-stay" # Remember cursor position when reopening file
               "vinegar" # Improved file explorer
+              "vim-easytags" # Automatic tags management
           ]; }
 
           { ft_regex = "\.pandoc\$"; name = "vim-pandoc-syntax"; }
