@@ -24,6 +24,7 @@ let
     pass
     beep
     pythonPackages.py3status
+    cmatrix
   ];
 
 in
@@ -54,6 +55,7 @@ buildEnv {
     tree
     nmap
     traceroute
+    telnet
   ] ++ lib.optionals is_desktop desktop_packages;
 }
 
