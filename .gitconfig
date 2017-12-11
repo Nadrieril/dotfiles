@@ -73,8 +73,6 @@
     log = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
     diffFilter = diff-so-fancy --patch
-[gpg]
-    program = gpg2
 [annex]
     autocommit = false
 [color]
