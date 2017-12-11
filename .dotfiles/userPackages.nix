@@ -56,6 +56,7 @@ buildEnv {
     nmap
     traceroute
     telnet
+    ctags
   ] ++ lib.optionals is_desktop desktop_packages;
 }
 
