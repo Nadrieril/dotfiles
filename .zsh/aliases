@@ -107,3 +107,7 @@ alias aurac="sudo aura aura -Ccc"
 alias paclf="$PACMAN_CMD -Ql"  # list files
 alias pacl="$PACMAN_CMD -Qet"  # list manually installed packages
 alias pacll="$PACMAN_CMD -Qdt"  # list installed packages
+
+function ssl_fpr() {
+  openssl s_client -connect "$1" | openssl x509 -noout -fingerprint -sha256
+}
