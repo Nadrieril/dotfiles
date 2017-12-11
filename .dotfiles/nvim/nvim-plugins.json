@@ -1,7 +1,7 @@
 {
   "ale": {
-    "rev": "91df9ba2c0ccbe53e7838d16642e00c6280eefaa",
-    "sha256": "1rj15g7v1hpckhpwa0skr5prsi17gk19ghssqj2l8pyb7bqpsgnw",
+    "rev": "7a88a3605c9bc270bcbc00fbf11aaf2a825d7bae",
+    "sha256": "02kn420lnnnl9rndqpblcv11rx18772qy5xqz0kjr77340kvm8ag",
     "url": "https://github.com/w0rp/ale"
   },
   "auto-pairs": {
@@ -10,8 +10,8 @@
     "url": "https://github.com/jiangmiao/auto-pairs"
   },
   "indentline": {
-    "rev": "a97b6d12ae06c2db524e2ceba976f1d4f4637cb7",
-    "sha256": "01wjpp8qkdwkjspnq6ccyj8hrhvidw5cd6fdag9g936wrnm6nv92",
+    "rev": "439348543c9ffe2c5c4469a6e8f005f67bf73cc1",
+    "sha256": "13rld8pgarsnfqwfjh13p9hv92p9mf0jyjv6bbj4wlhr09rcyvh0",
     "url": "https://github.com/yggdroot/indentline"
   },
   "javacomplete": {
@@ -20,18 +20,18 @@
     "url": "https://github.com/vim-scripts/javacomplete"
   },
   "latex-unicoder": {
-    "rev": "cee442ad2ccef8cbb0598f3db2c7445d213f26e2",
-    "sha256": "1n6idrljfp33373hwyb3n7bw7v9243sbdm4p9fjzw0b8yzdz48ff",
+    "rev": "46c1ccaec312e4d556c45c71b4de8025ff288f48",
+    "sha256": "03a16ysy7fy8if6kwkgf2w4ja97bqmg3yk7h1jlssz37b385hl2d",
     "url": "https://github.com/joom/latex-unicoder.vim"
   },
   "nrrwrgn": {
-    "rev": "835c982f16e50c4fa1c7678af188ae35375fd912",
-    "sha256": "1bin0j3rxgv394pggh5cqbh40n7p9ihmkyk9wgddd42ylb1ix95c",
+    "rev": "748be92538e5e6964b61ac9d71ed3fd3c8e2e458",
+    "sha256": "045mib5jhd8a2j94nvrlasydq92f724r5d8y71jcsmpl9d4jfb76",
     "url": "https://github.com/chrisbra/NrrwRgn"
   },
   "onedark": {
-    "rev": "1552d3e8ec7a25aa72bd0dfa5a8344d9c132a7c5",
-    "sha256": "1nldw7xggcdv2v6mmlqjwmfg40nlmh30hv2677vl77qsnvfnmm44",
+    "rev": "8b5544e29cc407ea165207105744ecb42f7e5035",
+    "sha256": "09ws6lkapfy3f67xjgjdwn2h4q259zd8vrrbl3icbmyhhbkszh7l",
     "url": "https://github.com/joshdick/onedark.vim"
   },
   "vim-exchange": {
@@ -45,13 +45,13 @@
     "url": "https://github.com/alx741/vim-hindent"
   },
   "vim-ledger": {
-    "rev": "1c3551b2e9103d771f7c8c4cbe4d54fcde2a60d3",
-    "sha256": "08f32cwl90blblbc9w2f6jca66i4hnzbwbx6wnyiw87k3lx9c9dr",
+    "rev": "17be9715303e6fd73a0abb38850206fd42c56c34",
+    "sha256": "1lfq3dk8s3g70f972s9g686k1vrymhgyr3aszkynq6vypmfsqg5n",
     "url": "https://github.com/ledger/vim-ledger"
   },
   "vim-obsession": {
-    "rev": "ad1ef9a0db9a03463b005b488fd27cb735317394",
-    "sha256": "1nkxdxlq2b7lg7kr4bszi97p2k08zyz2m9z425chk5xkb2y2dg20",
+    "rev": "b82f48bbcc950ad25db7e9ddd938d9d9f911bb56",
+    "sha256": "1r455xqw98464az6k42k01ay065iq7l582ry17qk2azafzfy25g9",
     "url": "https://github.com/tpope/vim-obsession"
   },
   "vim-rhubarb": {
@@ -65,8 +65,8 @@
     "url": "https://github.com/tpope/vim-rsi"
   },
   "vim-rust": {
-    "rev": "a54bc38126913dc32f69f5355992fa8fe7925b00",
-    "sha256": "05mli3w6ld11sqwa33a38v1d7qa6s35kgq6cp9wkam40h0k4rq98",
+    "rev": "b6d88adcf9867aa69f4d20d45d49bb54979842a4",
+    "sha256": "0n0hiqlv3amnzn69wyyq6z3r8zr0gcg86hw6flk7z39cxjhjv3vr",
     "url": "https://github.com/rust-lang/rust.vim"
   },
   "vim-stay": {
@@ -100,18 +100,18 @@
     "url": "https://github.com/sgur/vim-textobj-parameter"
   },
   "vim-textobj-user": {
-    "rev": "8e885f94c1a3b5204e75bb8b80077723a8a18467",
-    "sha256": "0xg1w03k8x9iqyzgpi6g5ggbyw4dmvbl5ikqhg2xwzb6ykfpssp7",
+    "rev": "e231b65797b5765b3ee862d71077e9bd56f3ca3e",
+    "sha256": "0zsgr2cn8s42d7jllnxw2cvqkl27lc921d1mkph7ny7jgnghaay9",
     "url": "https://github.com/kana/vim-textobj-user"
   },
   "vim-textobj-variable-segment": {
-    "rev": "2f444b51c9da727ad3045c359ce20e75194e96dc",
-    "sha256": "1p2n0hx23cbqln7q73vj5w905yi123rq3gf6i9njgvf6whg57j7h",
+    "rev": "9de9d65d7d54e93384bff629c66318a48dc16ca7",
+    "sha256": "03aabp3dk4f2agjdxncjc99rifq4div25vjd6pyl3r326a4rb1ly",
     "url": "https://github.com/Julian/vim-textobj-variable-segment"
   },
   "vimpager": {
-    "rev": "4f1a077a9a5646eeb2ccbc64640b96ad1fbd8fcd",
-    "sha256": "1dlnwpx3q5vsfpb2w3xbj7gdlmdjlw4h3byjnyw9hrz7769mnbzd",
+    "rev": "897a4675fc7e6068317a2a383287ace556eb126b",
+    "sha256": "15v2sphz17p52avff1rrz4j6z59hlzj2cdxyhf4l1rdm007giwmp",
     "url": "http://github.com/rkitover/vimpager"
   }
 }
