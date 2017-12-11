@@ -269,6 +269,18 @@ let g:ctrlp_prompt_mappings = {
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 
+" Fix incompatibility with deopolete
+function! Multiple_cursors_before()
+  if exists('g:deoplete#disable_auto_complete')
+    let g:deoplete#disable_auto_complete = 1
+  endif
+endfunction
+function! Multiple_cursors_after()
+  if exists('g:deoplete#disable_auto_complete')
+    let g:deoplete#disable_auto_complete = 0
+  endif
+endfunction
+
 " easymotion
 map <Leader> <Plug>(easymotion-prefix)
 
