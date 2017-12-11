@@ -183,4 +183,6 @@ pkgs: super: rec {
       gmp
     ];
   };
+
+  chromium = super.chromium.override { enablePepperFlash = true; };
 }
