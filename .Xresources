@@ -5,9 +5,10 @@ XTerm*reverseVideo: on
 /* xterm*faceName: DejaVu Sans Mono:size=22:antialias=false */
 xterm*borderWidth: 0
 /* XTerm*faceName: xft:Inconsolata for Powerline:pixelsize=30 */
-URxvt.font: xft:Inconsolata for Powerline
+URxvt.font: xft:Inconsolata for Powerline, xft:Unifont:size=12
 /* URxvt.font: xft:Fantasque Sans Mono:pixelsize=28 */
 /* URxvt.font: xft:Fantasque Sans Mono */
+/* URxvt*font: xft:Fantasque Sans Mono:size=12, xft:Unifont */
 /* Xft.dpi: 192 */
 /* URxvt*reverseVideo: true */
 URxvt.keysym.Home: \033[1~
