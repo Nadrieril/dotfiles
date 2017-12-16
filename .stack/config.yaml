@@ -4,3 +4,6 @@ templates:
     github-username: Nadrieril
     author-name: Nadrieril
 system-ghc: true
+nix:
+  enable: true
+  packages: [zlib]
