@@ -185,4 +185,36 @@ pkgs: super: rec {
   };
 
   chromium = super.chromium.override { enablePepperFlash = true; };
+
+  haskellPackages = super.haskellPackages.extend (hself: hsuper: {
+    hledger-lib = with pkgs; with hself; mkDerivation {
+      pname = "hledger-lib";
+      version = "1.4";
+      src = (fetchFromGitHub {
+        owner = "nadrieril";
+        repo = "hledger";
+        rev = "ad4cd4fb87c9e82d8832279547165263e59fa9c9";
+        sha256 = "117d1jq94ns606rgyzfzzfdvjqmwk0c9awzhn0gacy7nbjv6absl";
+      }) + "/hledger-lib";
+      enableSeparateDataOutput = true;
+      libraryHaskellDepends = [
+        ansi-terminal array base base-compat blaze-markup bytestring
+        cmdargs containers csv data-default Decimal deepseq directory extra
+        filepath hashtables HUnit megaparsec mtl mtl-compat old-time parsec
+        pretty-show regex-tdfa safe semigroups split text time transformers
+        uglymemo utf8-string
+      ];
+      testHaskellDepends = [
+        ansi-terminal array base base-compat blaze-markup bytestring
+        cmdargs containers csv data-default Decimal deepseq directory
+        doctest extra filepath Glob hashtables HUnit megaparsec mtl
+        mtl-compat old-time parsec pretty-show regex-tdfa safe semigroups
+        split test-framework test-framework-hunit text time transformers
+        uglymemo utf8-string
+      ];
+      homepage = "http://hledger.org";
+      description = "Core data types, parsers and functionality for the hledger accounting tools";
+      license = stdenv.lib.licenses.gpl3;
+    };
+  });
 }
