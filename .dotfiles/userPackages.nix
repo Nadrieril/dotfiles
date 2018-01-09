@@ -8,6 +8,7 @@ let
   is_desktop =
     hostname == "meluin" ||
     hostname == "limaew" ||
+    hostname == "wilwarin" ||
     hostname == "nawlenca";
 
   desktop_packages = [
