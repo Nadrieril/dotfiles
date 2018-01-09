@@ -25,6 +25,39 @@ let
     beep
     pythonPackages.py3status
     cmatrix
+    cabal2nix
+    filezilla
+    thunderbird
+    # hledger
+    # hledger-web
+    ledger
+    libreoffice-fresh
+    pandoc
+    pavucontrol
+    biber
+    file
+    deluge
+    latexrun
+    pythonPackages.weboob
+    python3
+    panflute
+    smartmontools
+    speedtest-cli
+    stack
+    nix-repl
+    nix-prefetch-git
+    gitAndTools.git-annex
+    git-annex-utils
+    graphviz
+    imagemagick
+    jhead
+    jmtpfs
+    keepass
+    haskellPackages.lhs2tex
+    xorg.xev
+    xarchiver
+    yubioath-desktop
+    gnome3.nautilus
   ];
 
 in
@@ -57,6 +90,10 @@ buildEnv {
     traceroute
     telnet
     ctags
+    arp-scan
+    iotop
+    unzip
+    usbutils
   ] ++ lib.optionals is_desktop desktop_packages;
 }
 
