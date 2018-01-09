@@ -120,10 +120,10 @@ pkgs: super: rec {
     name = "latexrun";
 
     src = pkgs.fetchFromGitHub {
-      owner = "aclements";
+      owner = "Nadrieril";
       repo = "latexrun";
-      rev = "38ff6ec2815654513c91f64bdf2a5760c85da26e";
-      sha256 = "0xdl94kn0dbp6r7jk82cwxybglm9wp5qwrjqjxmvadrqix11a48w";
+      rev = "02305f9f2168846afc1408c621d2c7ac00fd785c";
+      sha256 = "0mgpbq02mna2m15mwci9sw45mj9x446nkzl9wg58jizxrddk16bb";
     };
 
     buildInputs = with pkgs; [
@@ -135,22 +135,6 @@ pkgs: super: rec {
     ];
 
     dontBuild = true;
-
-    patches = [(pkgs.writeText "latexrun.patch" ''
-      diff --git a/test/run b/test/run
-      index 4b553d6..6b56bda 100755
-      --- a/test/run
-      +++ b/test/run
-      @@ -72,7 +72,7 @@ def test(latexrun_path, latexrun_args, input_path):
-           m = re.search(pre + 'bibtex-cmd: (.*)', input_src, re.I|re.M)
-           if m:
-               bibtex_cmd = m.group(1)
-      -        latexrun_args += ["--bibtex-cmd",  bibtex_cmd]
-      +        latexrun_args = latexrun_args + ["--bibtex-cmd",  bibtex_cmd]
-       
-           m = re.search(pre + 'output:\n((?:' + pre + '.*\n)*)', input_src, re.I|re.M)
-           if m:
-      '')];
 
     checkPhase = ''
       cd test
