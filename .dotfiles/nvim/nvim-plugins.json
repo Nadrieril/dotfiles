@@ -1,7 +1,7 @@
 {
   "ale": {
-    "rev": "7a88a3605c9bc270bcbc00fbf11aaf2a825d7bae",
-    "sha256": "02kn420lnnnl9rndqpblcv11rx18772qy5xqz0kjr77340kvm8ag",
+    "rev": "f1747901cc00abb7becb64c02bfccad46b66ed21",
+    "sha256": "0ynhpgr0ja8si1jjvc6kv0gdvdmy3m3xlx2zxp02avmldglcj42r",
     "url": "https://github.com/w0rp/ale"
   },
   "auto-pairs": {
@@ -45,8 +45,8 @@
     "url": "https://github.com/alx741/vim-hindent"
   },
   "vim-ledger": {
-    "rev": "17be9715303e6fd73a0abb38850206fd42c56c34",
-    "sha256": "1lfq3dk8s3g70f972s9g686k1vrymhgyr3aszkynq6vypmfsqg5n",
+    "rev": "6eb3bb21aa979cc295d0480b2179938c12b33d0d",
+    "sha256": "0rbwyaanvl2bqk8xm4kq8fkv8y92lpf9xx5n8gw54iij7xxhnj01",
     "url": "https://github.com/ledger/vim-ledger"
   },
   "vim-obsession": {
@@ -105,8 +105,8 @@
     "url": "https://github.com/kana/vim-textobj-user"
   },
   "vim-textobj-variable-segment": {
-    "rev": "9de9d65d7d54e93384bff629c66318a48dc16ca7",
-    "sha256": "03aabp3dk4f2agjdxncjc99rifq4div25vjd6pyl3r326a4rb1ly",
+    "rev": "7370f2b6df8bd63d6a4e1347079789b82adbb77a",
+    "sha256": "02x376ll6byg2b1rzz8rn46kl7rzcrcd6rmk2n68ql9igj9c6mn9",
     "url": "https://github.com/Julian/vim-textobj-variable-segment"
   },
   "vimpager": {
